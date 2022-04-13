@@ -7,6 +7,7 @@ steps to run the file:
 <p>4. open the .sln file with Visual Studio and run it</p>
 =====================================================================================
 <p>Simple description(mandarin):</p>
+
      現在的二手票券轉讓通常只能在FB或其他許多平台，而他們只販售、宣傳跟自身售票網站配合的節
 
 目，缺少了資訊整合的平台，我的大型團隊MVC專案就是以此為動機，設計出提供討論版、演唱會行事
