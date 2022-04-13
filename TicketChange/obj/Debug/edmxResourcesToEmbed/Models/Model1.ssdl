@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TicketChangeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="ArtID" />
+    </Key>
+    <Property Name="ArtID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArtTitle" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ArtContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ArtTime" Type="smalldatetime" />
+    <Property Name="ArtCategory" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Article_Tag">
+    <Key>
+      <PropertyRef Name="ArtID" />
+      <PropertyRef Name="TagID" />
+    </Key>
+    <Property Name="AtID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArtID" Type="int" Nullable="false" />
+    <Property Name="TagID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChatRoom">
+    <Key>
+      <PropertyRef Name="ChatID" />
+    </Key>
+    <Property Name="ChatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoomID" Type="int" Nullable="false" />
+    <Property Name="TalkerID" Type="int" Nullable="false" />
+    <Property Name="OnCall" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChatTexts">
+    <Key>
+      <PropertyRef Name="TextID" />
+    </Key>
+    <Property Name="TextID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoomID" Type="int" Nullable="false" />
+    <Property Name="ChatText" Type="nvarchar" MaxLength="50" />
+    <Property Name="TalkerID" Type="int" Nullable="false" />
+    <Property Name="TalkTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="ComID" />
+    </Key>
+    <Property Name="ComID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComContent" Type="nvarchar(max)" />
+    <Property Name="ComTime" Type="smalldatetime" />
+    <Property Name="ArtID" Type="int" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Read" Type="bit" Nullable="false" />
+    <Property Name="SendEmail" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoginAPI">
+    <Key>
+      <PropertyRef Name="Num" />
+    </Key>
+    <Property Name="Num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="APIprovider" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="t_Event">
+    <Key>
+      <PropertyRef Name="EventID" />
+    </Key>
+    <Property Name="EventID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Subject" Type="varchar(max)" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="DateStart" Type="datetime" />
+    <Property Name="DateEnd" Type="datetime" />
+    <Property Name="EventClass" Type="int" />
+    <Property Name="IsFullDay" Type="bit" />
+    <Property Name="Image" Type="varbinary(max)" />
+    <Property Name="Content" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Tag">
+    <Key>
+      <PropertyRef Name="TagID" />
+    </Key>
+    <Property Name="TagID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TagContent" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NickName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Sex" Type="int" Nullable="false" />
+    <Property Name="PhoneNum" Type="varchar" MaxLength="10" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="LoginDate" Type="datetime" Nullable="false" />
+    <Property Name="State" Type="bit" Nullable="false" />
+    <Property Name="Picture" Type="nvarchar" MaxLength="4000" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Article__ID__34C8D9D1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Article" Type="Self.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Article_T__ArtID__35BCFE0A">
+    <End Role="Article" Type="Self.Article" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Article_Tag" Type="Self.Article_Tag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ArtID" />
+      </Principal>
+      <Dependent Role="Article_Tag">
+        <PropertyRef Name="ArtID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Article_T__TagID__36B12243">
+    <End Role="Tag" Type="Self.Tag" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Article_Tag" Type="Self.Article_Tag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tag">
+        <PropertyRef Name="TagID" />
+      </Principal>
+      <Dependent Role="Article_Tag">
+        <PropertyRef Name="TagID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChatRoom_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="ChatRoom" Type="Self.ChatRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ChatRoom">
+        <PropertyRef Name="TalkerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChatTexts_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="ChatTexts" Type="Self.ChatTexts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ChatTexts">
+        <PropertyRef Name="TalkerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoginAPI_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="LoginAPI" Type="Self.LoginAPI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LoginAPI">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TicketChangeModelStoreContainer">
+    <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Article_Tag" EntityType="Self.Article_Tag" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChatRoom" EntityType="Self.ChatRoom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChatTexts" EntityType="Self.ChatTexts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoginAPI" EntityType="Self.LoginAPI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="t_Event" EntityType="Self.t_Event" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Article__ID__34C8D9D1" Association="Self.FK__Article__ID__34C8D9D1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Article_T__ArtID__35BCFE0A" Association="Self.FK__Article_T__ArtID__35BCFE0A">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="Article_Tag" EntitySet="Article_Tag" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Article_T__TagID__36B12243" Association="Self.FK__Article_T__TagID__36B12243">
+      <End Role="Tag" EntitySet="Tag" />
+      <End Role="Article_Tag" EntitySet="Article_Tag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChatRoom_User" Association="Self.FK_ChatRoom_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="ChatRoom" EntitySet="ChatRoom" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChatTexts_User" Association="Self.FK_ChatTexts_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="ChatTexts" EntitySet="ChatTexts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_User" Association="Self.FK_Comment_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginAPI_User" Association="Self.FK_LoginAPI_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="LoginAPI" EntitySet="LoginAPI" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

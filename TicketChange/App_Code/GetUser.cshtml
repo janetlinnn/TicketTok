@@ -1,0 +1,28 @@
+﻿
+@functions {
+    public static string id()
+    {
+        var session = Session["AccountData"];
+        return session == null ? "unlogin" : session.GetType().GetProperty("id").GetValue(session).ToString();
+    }
+    public static string name()
+    {
+        var session = Session["AccountData"];
+        return session == null ? "unlogin" : session.GetType().GetProperty("name").GetValue(session).ToString();
+    }
+    public static string pictureUrl()
+    {
+        var session = Session["AccountData"];
+        return session == null ? "unlogin" : session.GetType().GetProperty("pictureUrl").GetValue(session).ToString();
+    }
+    public static string email()
+    {
+        var session = Session["AccountData"];
+        return session == null ? "unlogin" : session.GetType().GetProperty("email").GetValue(session).ToString();
+    }
+    public static string loginMode()
+    {
+        var session = Session["AccountData"];
+        return session == null ? "unlogin" : session.GetType().GetProperty("loginMode").GetValue(session).ToString();
+    }
+}

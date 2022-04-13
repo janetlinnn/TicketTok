@@ -1,0 +1,837 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+@section css{
+
+    <!--<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">--> <!-- https://fonts.google.com/ -->
+    <!--<link rel="stylesheet" href="~/Content/Ocean/all.min.css">--> <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="~/Content/Ocean/magnific-popup.css">
+    <link rel="stylesheet" href="~/Content/Ocean/templatemo-ocean-vibes.css">
+
+    <style>
+     
+        #particles-js { /*粒子畫布大小*/
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),url("../../img/image_About.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        #title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-size: 80px;
+            color: white;
+        }
+        .subtitle {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-size: 65px;
+            color: white;
+        }
+
+            #title span {
+                color: green;
+                animation: neon 4s infinite;
+            }
+
+        @@keyframes neon {
+            0% {
+                color: #3E00FF;
+            }
+
+            25% {
+                color: #AE00FB;
+            }
+
+            50% {
+                color: #B5FFD9;
+            }
+
+            100% {
+                color: #3E00FF;
+            }
+        }
+
+
+    
+        #photoslide {
+            width: 100%;
+            height: 40vh;
+            background-image: url(../../img/image_About_crowd_2.jpg);
+            background-size: cover;
+            color: white;
+            background-attachment: fixed;
+        }
+       
+    </style>
+
+}
+
+<div id="particles-js" class="mt-0">
+    <h1 id="title">Ticket<span>Tok!</span></h1>
+    <h3 class="subtitle">不要未來，只要你來</h3>
+</div>
+
+<div class="page-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 py-3">
+                <div class="subhead">關於我們</div>
+                <h2 class="title-section">TicketTok!是致力於<span class="fg-primary">票券交換買賣</span>的交流平台</h2>
+
+                <p>我們提供來自世界各地的音樂愛好者們一個互相交流、票券交易或互換的平台，在這裡，你可以加入我們的會員並在論壇上找尋想要購入或售出的票券，還有各種演唱會、音樂季相關的周邊與最新訊息!</p>
+            </div>
+            <div class="col-lg-6 py-3">
+                <div class="about-img">
+                    <img src="~/img/images_About_intro.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div> <!-- .container -->
+</div> <!-- .page-section -->
+<!--<div class="page-section">
+    <div class="container">
+        <div class="text-center">
+            <div class="subhead">Our Teams</div>
+            <h2 class="title-section">The Expert Team on ReveTive</h2>
+        </div>
+
+        <div class="owl-carousel team-carousel mt-5">
+            <div class="team-wrap">
+                <div class="team-profile">
+                    <img src="~/img/teams/team_1.jpg" alt="">
+                </div>
+                <div class="team-content">
+                    <h5>Walter White</h5>
+                    <div class="text-sm fg-grey">Chief Executive Officer</div>
+
+                    <div class="social-button">
+                        <a href="#"><span class="mai-logo-facebook-messenger"></span></a>
+                        <a href="#"><span class="mai-call"></span></a>
+                        <a href="#"><span class="mai-mail"></span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-wrap">
+                <div class="team-profile">
+                    <img src="~/img/teams/team_2.jpg" alt="">
+                </div>
+                <div class="team-content">
+                    <h5>Sarah Johanson</h5>
+                    <div class="text-sm fg-grey">Chief Technology Officer</div>
+
+                    <div class="social-button">
+                        <a href="#"><span class="mai-logo-facebook-messenger"></span></a>
+                        <a href="#"><span class="mai-call"></span></a>
+                        <a href="#"><span class="mai-mail"></span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-wrap">
+                <div class="team-profile">
+                    <img src="~/img/teams/team_3.jpg" alt="">
+                </div>
+                <div class="team-content">
+                    <h5>Anna Anderson</h5>
+                    <div class="text-sm fg-grey">Product Manager</div>
+
+                    <div class="social-button">
+                        <a href="#"><span class="mai-logo-facebook-messenger"></span></a>
+                        <a href="#"><span class="mai-call"></span></a>
+                        <a href="#"><span class="mai-mail"></span></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>-->
+<!-- .container -->
+<!--</div>--> <!-- .page-section -->
+
+
+<!--<div class="bottomDiv">
+    <div class="container">
+
+
+        <div class="row row-cols-1 text-center">
+            <div class="col"><h1 style="color:white">場館資訊</h1></div>
+            <div class="row">
+                <div class="col-3">
+                    <input type="button" />
+                    <a href="https://comedyclub.kktix.cc/">
+                        <div class="logo">
+                            <img src="https://t.kfs.io/assets/venues/comedyclub-23f124d8a3350bb8f1fe7e313d14f0c8bd366bf1f9be7d6b16075884145f80f4.png" alt="">
+                        </div>
+                        <span class="name">卡米地 comedy club</span>
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a href="https://comedyclub.kktix.cc/">
+                        <div class="logo">
+                            <img src="https://t.kfs.io/assets/venues/comedyclub-23f124d8a3350bb8f1fe7e313d14f0c8bd366bf1f9be7d6b16075884145f80f4.png" alt="">
+                        </div>
+                        <span class="name">卡米地 comedy club</span>
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a href="https://comedyclub.kktix.cc/">
+                        <div class="logo">
+                            <img src="https://t.kfs.io/assets/venues/comedyclub-23f124d8a3350bb8f1fe7e313d14f0c8bd366bf1f9be7d6b16075884145f80f4.png" alt="">
+                        </div>
+                        <span class="name">卡米地 comedy club</span>
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a href="https://comedyclub.kktix.cc/">
+                        <div class="logo">
+                            <img src="https://t.kfs.io/assets/venues/comedyclub-23f124d8a3350bb8f1fe7e313d14f0c8bd366bf1f9be7d6b16075884145f80f4.png" alt="">
+                        </div>
+                        <span class="name">卡米地 comedy club</span>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <a href="https://comedyclub.kktix.cc/">-->
+@*<div class="logo">
+        <img src="https://t.kfs.io/assets/venues/comedyclub-23f124d8a3350bb8f1fe7e313d14f0c8bd366bf1f9be7d6b16075884145f80f4.png" alt="">
+    </div>
+    <span class="name">卡米地 comedy club</span>*@
+<!--</a>
+            </div>
+            <div class="col-3">
+                <a href="https://comedyclub.kktix.cc/">
+                    <div class="logo">
+                        <img src="https://t.kfs.io/assets/venues/comedyclub-23f124d8a3350bb8f1fe7e313d14f0c8bd366bf1f9be7d6b16075884145f80f4.png" alt="">
+                    </div>
+                    <span class="name">卡米地 comedy club</span>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="https://comedyclub.kktix.cc/">
+                    <div class="logo">
+                        <img src="https://t.kfs.io/assets/venues/comedyclub-23f124d8a3350bb8f1fe7e313d14f0c8bd366bf1f9be7d6b16075884145f80f4.png" alt="">
+                    </div>
+                    <span class="name">卡米地 comedy club</span>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="https://comedyclub.kktix.cc/">
+                    <div class="logo">
+                        <img src="https://t.kfs.io/assets/venues/comedyclub-23f124d8a3350bb8f1fe7e313d14f0c8bd366bf1f9be7d6b16075884145f80f4.png" alt="">
+                    </div>
+                    <span class="name">卡米地 comedy club</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>-->
+<!-- .container -->
+<!--</div>--> <!-- .page-section -->
+
+<div class="page-section " id="photoslide">
+
+</div>
+
+
+<div class="tm-container mt-5">
+    <nav class="tm-main-nav">
+        <h1 class="text-center">場館資訊</h1>
+        <ul id="inline-popups">
+
+            @{
+                string[] siteName = new string[] { "LegacyTaipei", "LegacyTaichung", "小地方展演空間", "PipeLive", "迴響音樂", "LiveWarHouse", "LegacyMini好丘", "LegacyMiniAmba", "破牆音樂", "ThERE", "彌聲Mixing", "玩劇島小劇場", "ManniCafe", "百樂門酒館", "樂悠悠之口", "BackstageCafe", "河岸留言", "BackstageLive", "TheWall" };
+                string[] photoName = new string[] { "LegacyTaipei.png", "LegacyTaichung.png", "小地方.png", "pipe.png", "迴響音樂.png", "livewarhouse.png", "好丘.png", "amba.png", "破牆.png", "there.png", "彌聲.png", "littleplay.png", "manni.png", "百樂門.png", "uu.png", "backstage.png", "河岸留言4.png", "backstagelive.png", "wall.png" };
+                for (int i = 0; i < siteName.Length; i++)
+                {
+                    <li class="tm-nav-item">
+                        <a style="text-decoration:none;" href="#@siteName[i]" data-effect="mfp-move-from-top" class="tm-nav-link">
+                            @siteName[i]
+                            <img class="innerimg" width="120" height="120" style="border-radius:15px" src="~/img/siteicons/@photoName[i]" />
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+        <!-- Popup itself -->
+        <div id="intro" class="popup mfp-with-anim mfp-hide tm-bg-gray">
+            <a href="#" class="tm-close-popup">
+                return home
+                <i class="fas fa-times"></i>
+            </a>
+            <div class="tm-row tm-intro-row">
+                <img src="img/intro.jpg" alt="Image" class="tm-intro-img">
+                <div class="tm-col tm-bg-white tm-intro-pad">
+                    <h2 class="tm-color-primary tm-page-title">Introducing Ocean Vibes</h2>
+                    <div class="tm-row tm-content-row">
+                        <div class="tm-col-6 tm-intro-col-l">
+                            <p>
+                                This CSS template is 100% free provided by
+                                <a rel="nofollow" href="https://templatemo.com/page/1" target="_parent">TemplateMo</a>
+                                website. You can use this template for any purpose. You can apply
+                                this as a CMS theme or a custom website builder template.
+                            </p>
+                            <p>
+                                You can support our website by contributing
+                                <a rel="nofollow" href="http://paypal.me/templatemo" target="_parent">a little via <strong>PayPal</strong></a>
+                                or spreading a word about TemplateMo to your friends.
+                                If you have any question, feel free to send
+                                us a message.
+                            </p>
+                            <p class="tm-mb-0">
+                                <strong>Credit</strong> goes to Pexels for the video banner and images used in this template. Some images are taken from Unsplash. Both Pexels and Unsplash are great websites for free photos.
+                            </p>
+                        </div>
+                        <div class="tm-col-6">
+                            <p>
+                                You are not allowed to re-distribute this
+                                template as a downloadable ZIP file on
+                                any template collection website.
+                            </p>
+                            <p>
+                                Top right corner is a return home with an
+                                icon that will close this pop-up page.
+                            </p>
+                            <p class="tm-mb-80">
+                                Next Page will bring you to the gallery
+                                page directly without going back to main
+                                menu.
+                            </p>
+                            <div class="tm-text-center">
+                                <a href="#" class="tm-btn tm-btn-primary mfp-prevent-close tm-btn-next">
+                                    Next Page
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="gallery" class="popup mfp-with-anim mfp-hide tm-bg-gray">
+            <a href="#" class="tm-close-popup">
+                return home
+                <i class="fas fa-times"></i>
+            </a>
+            <div class="tm-row tm-gallery-row">
+                <div class="tm-gallery">
+                    <div class="tm-gallery-container">
+                        <figure class="effect-chico tm-gallery-item portrait">
+                            <img src="img/gallery/portrait-01.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item nature">
+                            <img src="img/gallery/nature-01.jpg" alt="Image" />
+                            <figcaption>
+                                <p>TemplateMo is the best website for free css templates.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item animal">
+                            <img src="img/gallery/animal-01.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item building">
+                            <img src="img/gallery/building-01.jpg" alt="Image" />
+                            <figcaption>
+                                <p>TemplateMo is the best free css website templates.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item portrait">
+                            <img src="img/gallery/portrait-02.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item nature">
+                            <img src="img/gallery/nature-02.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item animal">
+                            <img src="img/gallery/animal-02.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item building">
+                            <img src="img/gallery/building-02.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item portrait">
+                            <img src="img/gallery/portrait-03.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item animal">
+                            <img src="img/gallery/animal-03.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item building">
+                            <img src="img/gallery/building-03.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item portrait">
+                            <img src="img/gallery/portrait-04.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item animal">
+                            <img src="img/gallery/animal-04.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item building">
+                            <img src="img/gallery/building-04.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item portrait">
+                            <img src="img/gallery/portrait-05.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item animal">
+                            <img src="img/gallery/animal-05.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item building">
+                            <img src="img/gallery/building-05.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item portrait">
+                            <img src="img/gallery/portrait-06.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item animal">
+                            <img src="img/gallery/animal-06.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item building">
+                            <img src="img/gallery/building-06.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item portrait">
+                            <img src="img/gallery/portrait-07.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item animal">
+                            <img src="img/gallery/animal-07.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item building">
+                            <img src="img/gallery/building-07.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item portrait">
+                            <img src="img/gallery/portrait-08.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+
+                        <figure class="effect-chico tm-gallery-item nature">
+                            <img src="img/gallery/nature-03.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item nature">
+                            <img src="img/gallery/nature-04.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item nature">
+                            <img src="img/gallery/nature-05.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item nature">
+                            <img src="img/gallery/nature-06.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item nature">
+                            <img src="img/gallery/nature-07.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item nature">
+                            <img src="img/gallery/nature-08.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+
+                        <figure class="effect-chico tm-gallery-item animal">
+                            <img src="img/gallery/animal-08.jpg" alt="Image" />
+                            <figcaption>
+                                <p>Chico's main fear was missing the morning bus.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-chico tm-gallery-item building">
+                            <img src="img/gallery/building-08.jpg" alt="Image" />
+                            <figcaption>
+                                <p>TemplateMo is the best free website for html css templates.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <!-- Gallery navigation and description -->
+                <div class="tm-col tm-gallery-right">
+                    <h2 class="tm-color-primary tm-mt-35 tm-page-title">Gallery</h2>
+                    <div class="tm-gallery-right-inner">
+                        <ul class="tm-gallery-links">
+                            <li>
+                                <a href="#" class="active tm-gallery-link" data-filter="*">
+                                    <i class="fas fa-layer-group tm-gallery-link-icon"></i>
+                                    All
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="tm-gallery-link" data-filter="portrait">
+                                    <i class="fas fa-portrait tm-gallery-link-icon"></i>
+                                    Portraits
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="tm-gallery-link" data-filter="nature">
+                                    <i class="fas fa-leaf tm-gallery-link-icon"></i>
+                                    Nature
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="tm-gallery-link" data-filter="animal">
+                                    <i class="fas fa-paw tm-gallery-link-icon"></i>
+                                    Animals
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="tm-gallery-link" data-filter="building">
+                                    <i class="far fa-building tm-gallery-link-icon"></i>
+                                    Buildings
+                                </a>
+                            </li>
+                        </ul>
+                        <p>
+                            Different icons are used for
+                            different categories. There are 4 or more
+                            pages of photos in this gallery. Each
+                            thumbnail has a nice hover effect.
+                        </p>
+                        <p>
+                            Proin lacus enim, finibus sed magna a,
+                            molestie lacinia est. Maecenas id dolor
+                            lorem. Donec sodales ex velit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="testimonials" class="popup mfp-with-anim mfp-hide tm-bg-gray">
+            <a href="#" class="tm-close-popup">
+                return home
+                <i class="fas fa-times"></i>
+            </a>
+            <div class="tm-testimonials-inner">
+                <h2 class="tm-color-gray tm-testimonial-col tm-page-title">Testimonials</h2>
+                <div class="tm-row tm-testimonial-row">
+                    <div class="tm-col tm-testimonial-col">
+                        <p>
+                            OCEAN vibes is free website template from
+                            <a rel="nofollow" href="https://templatemo.com" class="tm-color-primary">TemplateMo</a>
+                            website. You are allowed to use
+                            it for commercial purpose. You can convert this template as a CMS theme or a custom
+                            website builder template.
+                        </p>
+                        <em class="tm-mb-30 tm-color-light-gray">
+                            You may support us by telling your friends
+                            about our TemplateMo site. Feel free to
+                            contact us if you have anything to ask.
+                        </em>
+                        <p>
+                            You can make a little contribution via
+                            <a rel="nofollow" href="http://paypal.me/templatemo" target="_parent"><strong>PayPal</strong></a>
+                            or saying about TemplateMo to your friends. Duis egestas lorem eu nisi
+                            finibus, sit amet elementum lacus pretium.
+                        </p>
+                        <p>
+                            In tempor felis vitae nulla feugiat aliquam.
+                            Vivamus vitae congue mi. Sed maximus velit
+                            vestibulum nisl condimentum hendrerit.
+                        </p>
+                    </div>
+                    <div class="tm-col tm-testimonial-col tm-testimonial-col-2">
+                        <img src="img/testimonial-01.jpg" alt="Image" class="tm-mb-30">
+                        <blockquote>
+                            <p>
+                                "Suspendisse eu mollis diam, at ullamcorper
+                                diam. Ut sit amet arcu metus. Nullam mattis
+                                eros eget." by <span class="tm-color-primary">George, Chief Editor</span>
+                            </p>
+                        </blockquote>
+                        <blockquote class="tm-mb-50">
+                            <p>
+                                "Quisque et lorem accumsan, sollicitudin
+                                dolor vel, facilisis eros. Donec aliquet felis in
+                                mollis egestas." by <span class="tm-color-primary">Mary, CEO of Web</span>
+                            </p>
+                        </blockquote>
+                        <div class="tm-text-center">
+                            <a href="#" class="tm-btn tm-btn-primary mfp-prevent-close tm-btn-contact">
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tm-col tm-testimonial-col tm-testimonial-col-2">
+                        <p>
+                            Duis sapien diam, eleifend eget vehicula sed,
+                            convallis sit amet elit. Aenean condimentum
+                            vulputate porta.
+                        </p>
+                        <p>
+                            Mauris accumsan erat ante, id sagittis felis
+                            gravida vitae. Sed iaculis tincidunt neque, a
+                            molestie magna vehicula at.
+                        </p>
+                        <p>
+                            Phasellus ornare magna nec nulla pharetra,
+                            nec tristique elit lobortis.
+                        </p>
+                        <img src="img/testimonial-02.jpg" alt="Image" class="tm-mt-35">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+        <!-- 使用到的彈出視窗 -->
+
+
+        @{  
+            
+
+            object[] content = new object[] {
+                new{p1="台北市中正區八德路一段一號/華山1914創意文化園區/中5A館",p2="(02) 2395-6660",p3="http://www.legacy.com.tw/page/topic/taipei",p4="Legacy Taipei位於『華山1914創意文化園區』的中五館，場館由歷史古蹟改建而成，自1914年起，即為台北市的重要地標，近年更以文化創意活動的發展，成為台北重要的藝文活動聚集地。",p5="佔地225坪的寬闊空間，可靈活變化各種表演形式，場內沒有高柱造成視線死角，最適宜欣賞演出。舞台11m x 6m，室內挑高8米，讓表演者能有盡情發揮的空間。",p6="能保持與觀眾近距離接觸的互動能量。 Studio風格的場館設計，讓歷史建物保有質樸純粹的面貌，更讓唱歌與聽歌都能回到最原始直接的感動。"},
+                new{p1="台中市西屯區安和路117號",p2="(04) 2359-8780",p3="http://www.legacy.com.tw/page/topic/taichung",p4="台中，得天獨厚的樞紐位置，擁有豐厚的自然、人文資產，串聯著南來北往的交通，融合出屬於中部特有既包容又富創意的文化風格。",p5="Legacy傳，華人現場音樂的領導品牌，善於發掘創意因子的品牌性格，始終被台中深深吸引，經過三年多的縝密規劃，一座為Live Music量身打造的全新音樂展演空間– Legacy Taichung。",p6="希望成為最在地、最精彩的音樂生活地標，並為台灣音樂能量的點燃新亮點。以創作為主軸，搖滾為精神，打造一場場令人驚豔的現場演出；震撼的聲光效果，獨一無二的舞台魅力。"},
+                new{p1="台北市中正區杭州南路一段147號",p2="(02) 2327-8658",p3="https://www.facebook.com/apamini/",p4="『小地方』顧名思義真的空間不大，但拉近表演者與聽眾距離反而能更直接感受到新樂團的爆發力與魅力。",p5="以回收木材作為整體空間設置，兼具了環保與美學設計，也能讓表演者的聲音藉由與木頭共振達到最好效果。",p6="『小地方』的其餘時間作為其他展演活動場地，六日則有樂手表演，各種音樂風格類型隔空交流，是一個讓新興樂團表演的好舞台。"},
+                new{p1="台北市中正區思源街1號",p2="(02) 2365-3524",p3="https://pipelivemusic.com/",p4="位於公館自來水園區旁的PIPE LIVE MUSIC，前身是個抽水站，更是百年古蹟，孕育了許多歷史痕跡，寬敞的腹地，舒適的環境，讓聽音樂以及休閒娛樂更加緊密的串聯在一起。",p5="多元豐富節目內容為PIPE最大特色，寬廣的腹地成了少數Live House可演出至清晨的夢幻場地，節目除了藝文活動的演出，同時也有派對、講座、成果展等相關節目，屬於相當複合式的藝文展演空間。",p6=""},
+                new{p1="台中市中區中山路108號迴響第二月台",p2="台中市東區復興路四段17巷10號(吃漢BAR進入)",p3="https://www.facebook.com/SoundLiveHouse/",p4="現場原創音樂是表現文化的重要元素，這份力量不僅能改造個人的生命，更提供改革社會的動力，在太陽花運動中我們都已經見識到了這份磅礡的能量。沒有迴響音樂藝文展演空間的孕育，這些新的歌曲就無法順利產生。",p5="迴響音樂藝文展演空間從開始到現在，成為從無到有的音樂創造地，很多知名以及漸漸展露頭角的樂團都曾經在這個展演空間的大舞台演出，包括日本樂團 Hawaiian 6, Locofrank以及台灣當地樂團-脫拉庫和已經成名的閃靈。",p6="舞台旁邊是一塊棋盤狀的大舞池，讓歌迷可以盡情在樂音中陶醉搖擺，康百視經常在雜誌的最新單元中介紹即將上場的音樂表演。"},
+                new{p1="高雄市鹽埕區大義街2之5號／駁二藝術特區大義C10倉庫",p2="(07) 521-9824 ＃ 16",p3="https://kpmc.com.tw/",p4="LIVE WAREHOUSE為全台唯一臨港倉庫音樂空間，斑駁倉庫與搖滾現場的衝撞，演出類型豐富多元，讓國內外樂團齊聚一堂，更在此積極培育流行音樂人才。",p5="位於駁二大義區C10的小庫（230人）、大庫（1400人），備有專業燈光、音響設備與舞台技術人員。",p6="無論是近距離體驗舞台氛圍或與千人同享歡騰，這裡周周live演出，吸引樂迷爭相朝聖，迅速累積南方流行音樂能量！"},
+                new{p1="台北市信義區松勤街54號（信義公民會館 / 原四四南村）",p2="(02) 2395-6660",p3="https://www.legacy.com.tw/page/topic",p4="結合劇場空間、藝文展演、文創餐飲，假日小農、手作及二手市集，豐富的生活氣息，將現場表演、音樂藝術與環境友善的生活態度緊密結合，複合式音樂空間「Legacy mini＠好丘」於此誕生。",p5="「Legacy mini＠好丘」每週都會邀請對地方、環境、綠色生活議題有感的表演者，輪番進行現場演出。首場演出邀請甫獲得金馬最佳原創電影音樂獎的Fran法蘭，以及常將土地關懷、環境保護等議題寫入創作的高雄樂團淺堤，邀請大家感受台灣音樂現場的無限魅力。",p6=""},
+                new{p1="台北市萬華區武昌街二段77號號5 樓",p2="(02) 2395-6660",p3="https://www.legacy.com.tw/page/topic/mini",p4="台北夜生活據點，台北西門町意舍酒店5樓的聽吧音樂吧讓你在放鬆舒適的氛圍中，欣賞最新、最夯的流行節奏，讓音符串起情感的交流。",p5="現場享受節奏藍調、嘻哈與爵士的混音以及各式本地音樂，讓美酒伴隨音樂，沉醉台北的夜晚。",p6="另外，還有由華人音樂的夢想平台-街聲為意舍嚴選的原創音樂，讓音樂帶領旅行者發揮聽覺的無限想像。別忘了到聽吧體驗一下聽吧獨家的音樂時段。"},
+                new{p1="台北市中正區重慶南路三段104號",p2="0963-030-427",p3="https://www.facebook.com/brokenwallmusiclivehouse/",p4="有各類好喝的調酒、啤酒、咖啡。 如巨星一般的舞台、150吋巨大投影幕、高清雷射投影機、四支無線麥克風、演唱會用高級知名音響設備。 座席為20人，含站位最多可容納30人。",p5="我們總在紛亂的城市，尋找一個據點，希望破牆&爛Bar是一個讓人放鬆的地方。",p6="這是一個讓人覺得舒服自在的地方，不定時舉辦活動，小酌或爛醉皆歡迎。"},
+                new{p1="桃園市桃園區復興路454號B1樓",p2="(03) 339-8819",p3="https://www.facebook.com/ThERELiveHouse/",p4="ThERE 把自己定位為「中性空間」，沒有限制任何音樂風格。",p5="在這你可以聽見 1976 的英搖、滅火器的狂熱，到爵士風情的泥灘地浪人與原民聲響的舒米恩等各式音樂人；一方面也反映在地聽眾族群尚未成熟，很難將音樂定位、分類，因此只要是「原創音樂」，他們都樂意推薦，希望將各種音樂文化廣為傳遞。",p6=""},
+                new{p1="新竹市北區林森路278號",p2="(03)561-2871",p3="https://www.facebook.com/mixingstudiotw/",p4="彌聲提供許多麥克風種類及硬體設備以滿足各式各樣的錄音需求，累積至今音樂歌曲製作、廣告配樂與製作、口白配音、Live 現場錄音等作品達150 多件，也與許多藝人樂團合作。",p5="在新竹東門市場發跡，最初為錄音教學與小型宅錄的空間，後來整合為錄音、展演、活動企劃的音樂專業空間最後，在眾多音樂人、樂團、朋友、學生的支持下，成為桃竹苗地區規模最大的錄音室",p6=""},
+                new{p1="台中市西區精明一街75號",p2="(04)2310-8862",p3="https://www.littleplaytaichung.com/",p4="玩藝劇場，開啟多元跨界的想像。",p5="玩劇島 Little Play 是一個位於台中市中心的藝術教育／表演空間，除了經常性的舉辦音樂、劇場、舞蹈演出之外，也提供適合各種年齡層參與的藝術工作坊，以遊戲與實驗的開放精神來嘗試更多學習的可能。",p6="提供樂團、DJ、劇場、舞蹈演出場地，也提供適合各種年齡層參與的藝術工作坊。"},
+                new{p1="台中市中區篤行路17號",p2="(04)2358-1728",p3="https://www.facebook.com/mannicafe/",p4="咖啡和酒，是跟表演藝術和每天的生活，一樣重要的事。",p5="Manni Café是咖啡館、是表演場域是文化生活、工作還有自己與自己休息對話的城市角落。",p6="這裡是微型表演空間，是繁瑣平日的反面，是世界的縮影。放下工作，與三五好友一同來場小演出!"},
+                new{p1="高雄市三民區民族一路70號",p2="(07)389-0501",p3="https://www.facebook.com/paramount.bar/",p4="Paramount Bar是一間屬於獨立音樂的酒吧，1樓提供各式啤酒、調酒及餐點。2樓為展演空間，提供各獨立樂團演出發表音樂。",p5="多數演出會安排在周末，每個禮拜三的八點半固定有電影放映，許多熟客也會在這天出現，充滿魅力與熱力的百樂門，是喜愛音樂之人不容錯過的地方。",p6=""},
+                new{p1="台北市大安區光復南路100號B1",p2="(02)2772-5270",p3="https://www.facebook.com/theuumouthdeluxe",p4="樂悠悠之口光復南是一個複合式的藝文生態聚落，提供展演場地租借與工作空間進駐等不同機能，每個月固定舉辦不同類型的豐富現場演出。",p5="交通便利，位於台北市光復南路上、大巨蛋對面華視光復大樓的B1廣場，距離捷運國父紀念館站一號出口步行3分鐘可達。",p6=""},
+                new{p1="台北市大安區羅斯福路四段1號台大綜合體育館 2樓",p2="(02)2362-1170",p3="http://www.backstagecafe.com.tw/",p4="為音樂而生，後台是前往舞台的新地標，是所有音樂藝文發展討論的集散地，更是發展培育更多優質音樂創作者的新天地。",p5="在這裡，以生活就是娛樂的態度與溫度，建構最具完善專業演唱會音響規格與發展藝文娛樂的展演新空間。",p6="後台BackstageCafé希望能讓愛音樂、愛生活、愛咖啡、愛朋友的朋友們，能夠有一個分享音樂、分享生活、享受咖啡美食的地方。就算一切來不及，我們也不將就。"},
+                new{p1="台北市萬華區西寧南路177號",p2="(02)2370-8805",p3="https://www.riverside.com.tw/",p4="河岸留言西門紅樓展演館，又稱作大河岸，西門十字樓的空間，在2008年初出現，提供了一個能夠堅持音樂的純粹與深度，又足夠大的場地。",p5="我們的目標願景，是將底層的音樂文化，推展到一個成熟舞台，讓觀眾擁有多樣貌高品質的音樂樣貌之選擇。",p6="如果展演文化可以被比喻成一條河，那河岸留言已經渡過了這條河上游的湍急與顛簸，而正式進入開展及匯流的平原期，我們將可以稍有自信的帶領這群與河岸共同成長的樂團，走向更大的舞台。"},
+                new{p1="高雄市苓雅區海邊路15-3號",p2="(02)2777-2010",p3="http://backstagelive.com.tw/index.php",p4="後台 Backstage Live 位於高雄流行音樂中心鯨魚堤岸，擁有能同時容納千人的寬闊展演空間，可因應各式音樂演出、藝文與品牌商業活動需求，以多樣化的靈活運用，創造現場的真實感動。",p5="每一季將邀請近期受到矚目的創作人或樂團一同到「後台」演出，串連起台北「後台 Backstage Café」與高雄「後台 Backstage Live」兩座場館，接力公開精彩陣容，展示屬於這個世代的多元音樂能量。",p6="讓我們從「後台」出發，一起往更大的舞台邁進吧！"},
+                new{p1="台北市文山區羅斯福路四段200號B1",p2="(02)2930-0126",p3="https://www.facebook.com/thewall.tw",p4="THE WALL 是北部少數的複合式 Live House，舞台場地能夠容納約 500 人左右，跟其他中小型場館相比，THE WALL 有自己的系統、齊全的燈音設備，也有合作的燈音控，讓場館能夠營造的視覺與聽覺效果有一定的水準。",p5="THE WALL 已有 10 來年的歷史，目前團隊是由之前在《浪漫的工作室》的 Spykee 負責，Spykee 以自己本身當過 DJ 的經驗和對於音樂的熱情，讓他對展演空間、活動企劃等都有許多想法，團隊中的其他成員很多也是出自於對於音樂的熱情，以及想要讓 THE WALL 變得更好的想法在這個地方努力。",p6=""},
+
+
+            };
+
+                for (int i = 0; i < siteName.Length; i++)
+                {
+                <div id="@siteName[i]" class="popup mfp-with-anim mfp-hide tm-bg-gray">
+                    @*<a href="#" class="tm-close-popup">
+                        離開
+                        <i class="fas fa-times"></i>
+                    </a>*@
+                    <h2 class="tm-color-primary tm-about-col tm-mb-40 tm-page-title">@siteName[i]</h2>
+                    <div class="tm-row tm-about-row">
+                        <div class="tm-col tm-about-col tm-about-left">
+                            <img src="~/img/siteicons/@photoName[i]" width="150" height="150" alt="Image" class="tm-mb-30">
+                            <p class="tm-mb-40">
+                                場館地址:@content[i].GetType().GetProperty("p1").GetValue(content[i])
+                            </p>
+                            <p class="tm-mb-40 mt-0">
+                                聯絡方式:@content[i].GetType().GetProperty("p2").GetValue(content[i])
+                            </p>
+                            <p class="tm-mb-40">
+                                官網:<a style="text-decoration:none;" href="@content[i].GetType().GetProperty("p3").GetValue(content[i])">@content[i].GetType().GetProperty("p3").GetValue(content[i])</a> 
+                            </p>
+                        </div>
+                        <div class="tm-col tm-about-col">
+                            <p class="tm-mb-40">
+                                @content[i].GetType().GetProperty("p4").GetValue(content[i])
+                            </p>
+                            <p class="tm-mb-40">
+                                @content[i].GetType().GetProperty("p5").GetValue(content[i])
+                            </p>
+                            <p class="tm-mb-40">
+                                @content[i].GetType().GetProperty("p6").GetValue(content[i])
+                            </p>
+                            @*<a href="#@siteName[i]" class="tm-btn tm-btn-primary mfp-prevent-close tm-btn-contact tm-mb-40">下一個</a>*@
+
+
+                            @*<a href="#@(i+1==siteName.Length ? siteName[0]:siteName[i+1])" data-effect="mfp-move-from-top" class="tm-nav-link">
+                            下一個
+                            </a>*@
+                            <a href="#" class="tm-btn  mfp-prevent-close tm-btn-next">
+                                下一頁
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
+
+
+        <div id="contact" class="popup mfp-with-anim mfp-hide tm-bg-gray">
+            <a href="#" class="tm-close-popup">
+                return home
+                <i class="fas fa-times"></i>
+            </a>
+            <h2 class="tm-contact-col tm-color-primary tm-page-title tm-mb-40">Contact Us</h2>
+            <div class="tm-row tm-contact-row">
+                <div class="tm-col tm-contact-col">
+
+                    <!-- Do you need a working HTML contact form?
+                Please visit https://templatemo.com/contact page -->
+
+                    <form id="contact-form" action="" method="POST" class="tm-contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control rounded-0" placeholder="Full Name" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control rounded-0" placeholder="Email" required />
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" id="contact-select" name="inquiry">
+                                <option value="-">Subject</option>
+                                <option value="sales">Sales &amp; Marketing</option>
+                                <option value="creative">Creative Design</option>
+                                <option value="uiux">UI / UX</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="8" name="message" class="form-control rounded-0" placeholder="Message" ></textarea>
+                        </div>
+
+                        <div class="form-group tm-text-right">
+                            <button type="submit" class="tm-btn tm-btn-primary">Send it now</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tm-col tm-contact-col tm-contact-col-r">
+                    <!-- Map -->
+                    <div class="mapouter tm-mb-40">
+                        <div class="gmap_canvas">
+                            <iframe width="100" height="520" id="gmap_canvas"
+                                    src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Address -->
+                    <address class="tm-mb-40">
+                        110-220 Nam vel ultricies mauris,<br>
+                        Et gravida eros 10220
+                    </address>
+
+                    <!-- Links -->
+                    <ul class="tm-contact-links">
+                        <li>
+                            <a href="tel:0100200340">
+                                <i class="fas fa-phone tm-contact-link-icon"></i>
+                                Tel: 010-020-0340
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:info@company.com">
+                                <i class="fas fa-at tm-contact-link-icon"></i>
+                                Email: info@company.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.company.com">
+                                <i class="fas fa-link tm-contact-link-icon"></i>
+                                URL: www.company.com
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+@section scripts{
+    <script src="~/Scripts/js/particles.js"></script>
+    <script src="~/Scripts/js/app.js"></script>
+    @*端點特效*@
+
+
+    <script src="~/Scripts/Ocean/imagesloaded.pkgd.min.js"></script>
+    <script src="~/Scripts/Ocean/isotope.pkgd.min.js"></script>
+    <script src="~/Scripts/Ocean/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/Ocean/templatemo-script.js"></script>
+    @*場館資訊*@
+    <script>
+   
+        const parallax = document.getElementById("photoslide");
+
+        window.addEventListener("scroll", function () {
+
+            let offset = window.pageYOffset;
+            parallax.style.backgroundPositionY = offset * 1.2 + "px";
+            console.log(parallax.style.backgroundPositionY);
+        });//視差特效
+
+
+    </script>
+
+}

@@ -1,0 +1,513 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model System.Linq.IQueryable<TicketChange.Models.t_Event>
+@section css{
+
+    <style>
+        .imgdiv {
+            width: 337.97px;
+            height: 380px;
+        }
+
+        .disc {
+            height: 72.78px;
+        }
+    </style>
+}
+<div class="page-banner home-banner mb-5 mt-0">
+    <div class="slider-wrapper">
+        <div class="owl-carousel hero-carousel">
+            <div id="test" class="hero-carousel-item">
+                <img src="~/img/bg_slideShow_3.jpg" alt="">@*~/img/bg_image_1.jpg*@
+                <div class="img-caption">
+                    @*<div class="subhead">巨星雲集</div>
+                        <h1 class="mb-4">不要未來   只要你來</h1>
+                        <a href="#services" class="btn btn-outline-light">即刻開始</a>*@
+                </div>
+            </div>
+            <div class="hero-carousel-item">
+                <img src="~/img/bg_slideShow_2.jpg" alt="">
+                <div class="img-caption">
+                    @*<h1 class="mb-4">等待最初的感動!</h1>
+                        <a href="#services" class="btn btn-outline-light">Get Started</a>
+                        <a href="#services" class="btn btn-primary">See Pricing</a>*@
+                </div>
+            </div>
+            <div class="hero-carousel-item">
+                <img src="~/img/bg_slideShow_1.jpg" alt="">
+                <div class="img-caption">
+                    @*<div class="subhead">Easy way to build perfect website</div>
+                        <h1 class="mb-4">Beautify handcrafted templates for your website</h1>
+                        <a href="#services" class="btn btn-primary">Read More</a>*@
+                </div>
+            </div>
+        </div>
+    </div> <!-- .slider-wrapper -->
+</div> <!-- .page-banner -->  @*這是首頁的輪播效果*@
+
+<main>
+    <div class="page-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 py-3">
+                    <div class="subhead">關於我們</div>
+                    <h2 class="title-section">我們是 <span class="fg-primary">TicketTok!</span> 跟你一起玩轉演唱!</h2>
+
+                    <p>TicketTok! 是一個提供二手票券交易的平台，不論是演唱會、劇場演出、運動賽事，都可以在這邊找到屬於你的狂歡時刻!</p>
+
+                    <a href="@Url.Action("About_Test","Home")" class="btn btn-primary mt-4">更多詳情</a>
+                </div>
+                <div class="col-lg-6 py-3">
+                    <div class="about-img">
+                        <img src="~/img/image_introduce.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- 關於我們 自我介紹 -->
+    <!--<div class="page-section">
+        <div class="container">
+            <div class="text-center">
+                <div class="subhead">Our Services</div>
+                <h2 class="title-section">See what can we do for your Projects</h2>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
+                    <div class="text-center">
+                        <div class="img-fluid mb-4">
+                            <img src="~/img/icons/web_development.svg" alt="">
+                        </div>
+                        <h5>Web Development</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
+                    <div class="text-center">
+                        <div class="img-fluid mb-4">
+                            <img src="~/img/icons/graphics_design.svg" alt="">
+                        </div>
+                        <h5>Graphics Design</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
+                    <div class="text-center">
+                        <div class="img-fluid mb-4">
+                            <img src="~/img/icons/seo_and_marketing.svg" alt="">
+                        </div>
+                        <h5>SEO & Marketing</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
+                    <div class="text-center">
+                        <div class="img-fluid mb-4">
+                            <img src="~/img/icons/customer_services.svg" alt="">
+                        </div>
+                        <h5>Customer Services</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
+                    <div class="text-center">
+                        <div class="img-fluid mb-4">
+                            <img src="~/img/icons/app_development.svg" alt="">
+                        </div>
+                        <h5>App Development</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
+                    <div class="text-center">
+                        <div class="img-fluid mb-4">
+                            <img src="~/img/icons/ui_ux_design.svg" alt="">
+                        </div>
+                        <h5>UI/UX Design</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
+                    <div class="text-center">
+                        <div class="img-fluid mb-4">
+                            <img src="~/img/icons/product_design.svg" alt="">
+                        </div>
+                        <h5>Product Design</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
+                    <div class="text-center">
+                        <div class="img-fluid mb-4">
+                            <img src="~/img/icons/data_analyst.svg" alt="">
+                        </div>
+                        <h5>Data Analyst</h5>
+                    </div>
+                </div>
+
+            </div>
+        </div>-->
+    <!--</div>--> <!-- .page-section -->
+    <!--<div class="page-section">
+        <div class="container">
+            <div class="text-center">
+                <div class="subhead">Our Teams</div>
+                <h2 class="title-section">The Expert Team on ReveTive</h2>
+            </div>
+
+            <div class="owl-carousel team-carousel mt-5">
+                <div class="team-wrap">
+                    <div class="team-profile">
+                        <img src="~/img/teams/team_1.jpg" alt="">
+                    </div>
+                    <div class="team-content">
+                        <h5>Walter White</h5>
+                        <div class="text-sm fg-grey">Chief Executive Officer</div>
+
+                        <div class="social-button">
+                            <a href="#"><span class="mai-logo-facebook-messenger"></span></a>
+                            <a href="#"><span class="mai-call"></span></a>
+                            <a href="#"><span class="mai-mail"></span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-wrap">
+                    <div class="team-profile">
+                        <img src="~/img/teams/team_2.jpg" alt="">
+                    </div>
+                    <div class="team-content">
+                        <h5>Sarah Johanson</h5>
+                        <div class="text-sm fg-grey">Chief Technology Officer</div>
+
+                        <div class="social-button">
+                            <a href="#"><span class="mai-logo-facebook-messenger"></span></a>
+                            <a href="#"><span class="mai-call"></span></a>
+                            <a href="#"><span class="mai-mail"></span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-wrap">
+                    <div class="team-profile">
+                        <img src="~/img/teams/team_3.jpg" alt="">
+                    </div>
+                    <div class="team-content">
+                        <h5>Anna Anderson</h5>
+                        <div class="text-sm fg-grey">Product Manager</div>
+
+                        <div class="social-button">
+                            <a href="#"><span class="mai-logo-facebook-messenger"></span></a>
+                            <a href="#"><span class="mai-call"></span></a>
+                            <a href="#"><span class="mai-mail"></span></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>-->
+    <!-- .container -->
+
+    <div class="page-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 py-3">
+                    <div class="subhead">Portfolio</div>
+                    <h2 class="title-section">熱門演唱會</h2>
+                </div>
+                <div class="col-md-6 py-3 text-md-right">
+                    <a href="@Url.Action("Concert")" class="btn btn-outline-primary">更多活動資訊 <span class="mai-arrow-forward ml-2"></span></a>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                @{  var imageByte = new byte[] {};
+                    foreach (var item in @Model)
+                    {
+                        <div class="grid-item web">
+                            @*可以控制哪個種類*@
+                            <div class="portfolio">
+                                <div class="container">
+                                    <div class="row row-cols-1">
+                                        <div class="col imgdiv">
+                                            @{ 
+                                                imageByte = item.Image;
+                                                var base64 = Convert.ToBase64String(imageByte);
+                                                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                            }
+                                            
+                                                <img class="rounded mx-auto d-block" width="370" height="370" src="@imgSrc" alt="">
+                                                                       
+                                        </div>
+                                        <div class="col disc"><p class="font-weight-bolder" style="padding-top:20px">@item.Subject</p></div>
+                                        <div class="col text-right"><a href="@Url.Action("Concert_Detail/"+item.EventID, "Home")"><button type="button" class="btn btn-outline-success">活動詳情</button></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+               
+            </div>
+        </div> <!-- .container -->
+    </div> <!-- 熱門演唱會 -->
+
+    <div class="text-center">
+        <img src="~/img/交易流程圖.jpg" width="1100" height="200" alt="" class="img-fluid" @*style=" width:1600px; height:700px; object-fit:contain;"*@ />
+    </div><!-- 流程圖 -->
+
+    <div class="page-section">
+        <div class="container">
+            <div class="owl-carousel testimonial-carousel">
+                <div class="card-testimonial">
+                    <div class="content">
+                        昨天在小巨蛋的ONE OK ROCK 演唱會~~~   真的是意猶未盡!太快結束了啦
+                        下次我要衝搖滾區!!  one ok rock下次一定要再來台灣喔!!! 希望有朝一日我可以去日本看演唱會!
+                    </div>
+                    <div class="author">
+                        <div class="avatar">
+                            <img src="~/img/person/person1.jpg" alt="">
+                        </div>
+                        <div class="d-inline-block ml-2">
+                            <div class="author-name">馬淑芳</div>
+                            <div class="author-info">Taichung- TW</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-testimonial">
+                    <div class="content">
+                        三場演唱會就這樣結束了心情依然非常捨不得，
+                        第一場幫拍照， 忙錄音還要忙擧牌， 似乎很忙
+                        ， 位置整個非常的靠近她， 從開始到結束演唱會似乎暴亂了數次，好刺激!
+                    </div>
+                    <div class="author">
+                        <div class="avatar">
+                            <img src="~/img/person/person2.jpg" alt="">
+                        </div>
+                        <div class="d-inline-block ml-2">
+                            <div class="author-name">葉思賢</div>
+                            <div class="author-info">HK</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-testimonial">
+                    <div class="content">
+                        第一次這麼近距離地靠近五月天，原本售票當天以為沒希望了，結果在這邊有人轉售!!剛好買到，這次的演唱有很多首我喜歡的歌~  再貴都值得拉!
+                    </div>
+                    <div class="author">
+                        <div class="avatar">
+                            <img src="~/img/person/person3.jpg" alt="">
+                        </div>
+                        <div class="d-inline-block ml-2">
+                            <div class="author-name">吳俊修</div>
+                            <div class="author-info">Miaoli - TW.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-testimonial">
+                    <div class="content">
+                        這次場地比較大，雖然音效讓我有點傷心，可是在視覺上的效果卻超好的!!可能也和坐在三樓俯瞰全場有關吧~例如看手機海超美，我相信這是只有三樓才看到得的全景!!
+                    </div>
+                    <div class="author">
+                        <div class="avatar">
+                            <img src="~/img/person/person4.jpg" alt="">
+                        </div>
+                        <div class="d-inline-block ml-2">
+                            <div class="author-name">李雅孝</div>
+                            <div class="author-info">Changhua - TW</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-testimonial">
+                    <div class="content">
+                        這真的是很棒的一場演唱會，作為宥嘉的小巨蛋出登場，真的已經沒有什麼好挑剔的。包括舞台的設計、文宣品、影片、演唱本身，都給人值回票價的感覺！
+                    </div>
+                    <div class="author">
+                        <div class="avatar">
+                            <img src="~/img/person/person5.jpg" alt="">
+                        </div>
+                        <div class="d-inline-block ml-2">
+                            <div class="author-name">柯育德</div>
+                            <div class="author-info">Taichung - Taiwan</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-testimonial">
+                    <div class="content">
+                        真的要很認真的說，能有幸目睹蔡依林演唱會真的是件很榮幸的事，她連續唱跳幾乎不停歇，想聽的歌太多了，很幸運活在有蔡依林的音樂時代。
+
+                    </div>
+                    <div class="author">
+                        <div class="avatar">
+                            <img src="~/img/person/person6.jpg" alt="">
+                        </div>
+                        <div class="d-inline-block ml-2">
+                            <div class="author-name">李家豪</div>
+                            <div class="author-info">Chiayi - TW</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- .row -->
+        </div> <!-- .container -->
+    </div> <!-- 輪播評價區 -->
+    <!--<div class="page-section">
+        <div class="container">
+            <div class="text-center">
+                <div class="subhead">News</div>
+                <h2 class="title-section">Read Our Latest News</h2>
+            </div>
+
+            <div class="row my-5 card-blog-row">
+                <div class="col-lg-3 py-3">
+                    <div class="card-blog">
+                        <div class="header">
+                            <div class="entry-footer">
+                                <div class="post-author">Sam Newman</div>
+                                <a href="#" class="post-date">23 Apr 2020</a>
+                            </div>
+                        </div>
+                        <div class="body">
+                            <div class="post-title"><a href="blog-single.html">What is Business Management?</a></div>
+                        </div>
+                        <div class="footer">
+                            <a href="blog-single.html">Read More <span class="mai-chevron-forward text-sm"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 py-3">
+                    <div class="card-blog">
+                        <div class="header">
+                            <div class="avatar">
+                                <img src="~/img/person/person_1.jpg" alt="">
+                            </div>
+                            <div class="entry-footer">
+                                <div class="post-author">Sam Newman</div>
+                                <a href="#" class="post-date">23 Apr 2020</a>
+                            </div>
+                        </div>
+                        <div class="body">
+                            <div class="post-title"><a href="blog-single.html">What is Business Management?</a></div>
+                            <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
+                        </div>
+                        <div class="footer">
+                            <a href="blog-single.html">Read More <span class="mai-chevron-forward text-sm"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 py-3">
+                    <div class="card-blog">
+                        <div class="header">
+                            <div class="avatar">
+                                <img src="~/img/person/person_2.jpg" alt="">
+                            </div>
+                            <div class="entry-footer">
+                                <div class="post-author">Sam Newman</div>
+                                <a href="#" class="post-date">23 Apr 2020</a>
+                            </div>
+                        </div>
+                        <div class="body">
+                            <div class="post-title"><a href="blog-single.html">What is Business Management?</a></div>
+                            <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
+                        </div>
+                        <div class="footer">
+                            <a href="blog-single.html">Read More <span class="mai-chevron-forward text-sm"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 py-3">
+                    <div class="card-blog">
+                        <div class="header">
+                            <div class="avatar">
+                                <img src="~/img/person/person_3.jpg" alt="">
+                            </div>
+                            <div class="entry-footer">
+                                <div class="post-author">Sam Newman</div>
+                                <a href="#" class="post-date">23 Apr 2020</a>
+                            </div>
+                        </div>
+                        <div class="body">
+                            <div class="post-title"><a href="blog-single.html">What is Business Management?</a></div>
+                            <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
+                        </div>
+                        <div class="footer">
+                            <a href="blog-single.html">Read More <span class="mai-chevron-forward text-sm"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="blog.html" class="btn btn-primary">View More</a>
+            </div>
+
+        </div>-->
+    <!-- .container -->
+    <!--</div>--> <!-- Read Our Latest News -->
+    <!--<div class="page-section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="title-section mb-3">Stay in touch</h2>
+                <p>Just say hello or drop us a line. You can manualy send us email on <a href="mailto:example@mail.com">example@mail.com</a></p>
+            </div>
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-8">
+                    <form action="#" class="form-contact">
+                        <div class="row">
+                            <div class="col-sm-6 py-2">
+                                <label for="name" class="fg-grey">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter name..">
+                            </div>
+                            <div class="col-sm-6 py-2">
+                                <label for="email" class="fg-grey">Email</label>
+                                <input type="text" class="form-control" id="email" placeholder="Email address..">
+                            </div>
+                            <div class="col-12 py-2">
+                                <label for="subject" class="fg-grey">Subject</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Subject..">
+                            </div>
+                            <div class="col-12 py-2">
+                                <label for="message" class="fg-grey">Message</label>
+                                <textarea id="message" rows="8" class="form-control" placeholder="Enter message.."></textarea>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <button type="submit" class="btn btn-primary px-5">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>-->
+    <!-- .container -->
+    <!--</div>--> <!-- stay in touch -->
+
+    <div class="page-section">
+        <div class="container-fluid">
+            <div class="row row-cols-md-3 row-cols-lg-5 justify-content-center align-items-center ">
+                <div class="py-3 px-5 ">
+                    <a href="https://kktix.com/"><img src="~/img/clients/KKTIX.png" alt=""></a>
+                </div>
+                <div class="py-3 px-5">
+                    <a href="https://tixfun.com/UTK0101_"><img src="~/img/clients/TixFun.png" alt=""></a>
+                </div>
+                <div class="py-3 px-5">
+                    <a href="https://tixcraft.com/"><img src="~/img/clients/TixCraft.png" alt=""></a>
+                </div>
+                <div class="py-3 px-5">
+                    <a href="https://ticket.com.tw/application/utk01/utk0101_.aspx"><img src="~/img/clients/EraTicket.png" alt=""></a>
+                </div>
+                <div class="py-3 px-5">
+                    <a href="https://tickets.udnfunlife.com/application/UTK01/UTK0101_.aspx?gclid=CjwKCAjwlcaRBhBYEiwAK341jc6dSsXuUBzu7AQFRloKT0Ik2QQ3F_QVTCjDW_nfkNzhtxsSRN03FhoCdPIQAvD_BwE"><img src="~/img/clients/Udn.png" alt=""></a>
+                </div>
+            </div>
+        </div> <!-- .container-fluid -->
+    </div> <!-- 各大票券網站icon -->
+
+</main>
+
+

@@ -1,0 +1,80 @@
+﻿@{ 
+    ViewBag.Title="Calendar";
+}
+<div class="container">
+    <link href='~/Content/main.css' rel='stylesheet' />
+    <link rel="stylesheet" href="~/Content/myStyle.css">
+
+    <div id="calendarWrap">
+        <div id='calendar'></div>
+    </div>
+</div>
+
+@section scripts{
+    <script src='~/Scripts/js/main.js'></script>
+    <script src="~/Scripts/js/locales-all.js"></script>
+    <script>
+        function  getMyDate(d) {
+            var week = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日'];
+            return `${d.getFullYear()} 年 ${d.getMonth()+1} 月 ${d.getDate()} 日 ${week[d.getDay()]} ${d.getHours() == 0 ? "" : (d.getHours() < 10 ? "0" + d.getHours() : d.getHours())+ ":" + (d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes())}`;
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                dayMaxEvents: 1, // 一筆以上，隱藏，+more....
+                
+                eventClick: function (info) {
+                    $.getJSON("/Home/Image", `title=${info.event.title}`, function (thedata) {
+                        var uInt8Array = new Uint8Array(thedata.IMG);
+                        var i = uInt8Array.length;
+                        var binaryString = new Array(i);
+                        while (i--) {
+                            binaryString[i] = String.fromCharCode(uInt8Array[i]);
+                        }
+                        var data = binaryString.join('');
+                        var base64 = window.btoa(data);
+                            $('#exampleModal').find(".modal-header").html(`活動名稱 : ${info.event.title}`);
+                            $('#exampleModal').find(".modal-body").html(`<div style="float:left; width:70%">活動地點 : ${info.event.extendedProps.description}</br>開始時間 : ${getMyDate(new Date(info.event.start))}${info.event.end == null ? "" : "</br>結束時間 : " + getMyDate(new Date(info.event.end))} </div><div style="float:right;width:30%"><img src="data:image/png;base64,${base64}" style="width:150px;height:200px;float:right" /></div>`);
+                            $('#exampleModal').modal('show');
+                        });
+                },
+                initialView: 'dayGridMonth',
+                locale: 'zh-tw',
+                height: 610,
+                navLinks: true,
+                headerToolbar: {
+                    right: 'prev,next today',
+                    center: 'title',
+                    left: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+
+
+                events: JSON.parse("@Html.Raw(HttpUtility.JavaScriptStringEncode(@ViewBag.Jcal))"),
+
+
+
+                dayCellContent: function (arg) {
+                    return arg.date.getDate();
+                },
+
+
+
+            });
+            calendar.render();
+        });
+
+
+
+    </script>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+            </div>
+        </div>
+    </div>
+  </div>
+}

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<TicketChange.Models.Article>
+
+@{
+    ViewBag.Title = "Test";
+}
+
+<h2>Test</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ArtID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArtTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArtContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArtTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArtCategory)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArtID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArtTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArtContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArtTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArtCategory)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit2", "Forum", new { aId = item.ArtID})"><i class="fas fa-pen"></i> 編輯文章</a>
+            @Html.ActionLink("Edit", "Edit2", new { aId=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,185 @@
+﻿@model IEnumerable<TicketChange.Models.Article>
+
+@{
+    ViewBag.Title = "ArticleList";
+}
+@{ string ishot; string isnew;}
+@if (ViewContext.RouteData.Values["action"].ToString() != "NewestList")
+{ ishot = "white"; isnew = "gainsboro"; }
+else { ishot = "gainsboro"; isnew = "white"; }
+
+
+<link href="~/Content/style.css" rel="stylesheet" />
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="breadcrumb-hero">
+            <div class="banner">
+                <div class="breadcrumb-hero">
+                    <div class="search-wrap">
+                        <div class="search-box">
+                            @using (Html.BeginForm("ArticleList", "Forum"))
+                            {
+                                @Html.AntiForgeryToken()
+                                <i class="fas fa-search"></i>
+                                @Html.TextBox("ArtTitle", null, new { @class = "search-input", placeholder = "搜尋文章" })
+                                <input class="search-btn" type="submit" value="搜 尋" />
+                            }
+
+                        </div>
+                        @if (GetUser.id() != "unlogin")
+                        {
+                            <div class="post-btn"><a href="@Url.Content("~/Forum/Create")"><i class="far fa-edit"></i></a></div>}
+                        else
+                        {
+                            <div class="post-btn" data-toggle="tooltip" data-placement="right" title="登入才能發文喔"><a><i class="far fa-edit"></i></a></div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section><!-- End Breadcrumbs -->
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+
+        <div class="container">
+
+            <div class="search-tag">@Html.Raw(ViewBag.tagName)</div>
+            <div id="main-top">
+                <ul id="main-tabs">
+                    <li><a style="background-color:@ishot" data-status="hot" href="@Url.Action("ArticleList")" aria-selected="true">熱門</a></li>
+                    <li><a style="background-color:@isnew" href="@Url.Action("NewestList")" data-status="newest">最新</a></li>
+                </ul>
+            </div>
+            <div class="row">
+
+                <div class="entries myhr">
+                    @if (Model.Count() == 0)
+                    {
+
+                        <article class="enrty">
+                            <div class="entry-content">抱歉，沒有搜尋到與 <font color="red"> @ViewData["sw"] </font> 相關文章，請嘗試其他關鍵字</div>
+                        </article>
+
+                    }
+                    else
+                    {
+                        foreach (var item in Model)
+                        {
+                            <article class="entry" data-title="@item.ArtTitle">
+                                <a href="@Url.Action("Details", "Forum", new { id = item.ArtID })">
+                                    <h2 class="entry-title">
+                                        @item.ArtTitle
+                                    </h2>
+
+                                    <div class="entry-meta">
+                                        <ul>
+                                            <li class="d-flex" id="cat" data-cat="@item.ArtCategory"><span> @item.ArtCategory</span></li>
+                                            <li class="d-flex"><img id="userImg" style="border-radius: 50%;" class="userImg img-circle" src="@item.User.Picture" alt="Alternate Text" /><div class="authorName">@item.User.Name </div></li>
+                                            <li class="d-flex"><i class="far fa-clock"></i><div class="post-date">@Convert.ToDateTime(item.ArtTime).ToLongDateString()</div></li>
+
+                                        </ul>
+
+                                    </div>
+
+                                    <div class="entry-content">
+                                        <div class="JQellipsis">
+                                            @Html.Raw(@item.ArtContent)
+                                        </div>
+                                    </div>
+
+
+                                    @*<div class="entry-bottom">
+                                            <div>
+                                                <ul>
+                                                    <li class="d-flex align-items-center"><i class="far fa-heart"></i><span class="like-count">20</span></li>
+                                                    <li class="d-flex align-items-center"><i class="far fa-comment-dots"></i><span class="comment-count">4</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>*@
+                                </a>
+                            </article><!-- End blog entry -->
+                        }
+                    }
+                </div><!-- End blog entries list -->
+
+                <div id="right-area" class="">
+                    <div class="">
+                        <h3 class="sidebar-title"><i class="fas fa-th-list"></i> 看板分類</h3>
+                        <div class="categories">
+                            <ul class="cat">
+                                <li><a href="@Url.Action("ArticleList", "Forum")"> 全部</a></li>
+                                <li><a href="@Url.Action("ArticleCategoery", "Forum", new { cat = 1 })" data-status="ticket">門票討論</a></li>
+                                <li><a href="@Url.Action("ArticleCategoery", "Forum", new { cat = 2 })" data-status="ticket">周邊討論</a></li>
+                                <li><a href="@Url.Action("ArticleCategoery", "Forum", new { cat = 3 })" data-status="share">心得分享</a></li>
+                            </ul>
+                        </div><!-- End sidebar categories-->
+                    </div><!-- End sidebar -->
+                    <div>
+                        <h3 class="sidebar-title"><i class="fas fa-tags"></i> 熱門標籤</h3>
+                        <div class="sidebar-item tags">
+                            <ul>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "演唱會" })" method="post">演唱會</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "求票" })" method="post">求票</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "讓票" })" method="post">讓票</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "獨立音樂" })" method="post">獨立音樂</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "周邊" })" method="post">周邊</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "台北" })" method="post">台北</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "音樂祭" })" method="post">音樂祭</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "高雄" })" method="post">高雄</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "分享" })" method="post">分享</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "大港開唱" })" method="post">大港開唱</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "小巨蛋" })" method="post">小巨蛋</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "田馥甄" })" method="post">田馥甄</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "換票" })" method="post">換票</a></li>
+
+                            </ul>
+
+                        </div><!-- End sidebar tags-->
+
+                    </div>
+
+
+
+                </div><!-- End blog sidebar -->
+
+            </div>
+
+        </div>
+
+        <div id="pageBtn">@Html.Raw(ViewBag.PageList)</div>
+
+    </section><!-- End Blog Section -->
+
+</main><!-- End #main -->
+
+
+@section scripts{
+    <script src="https://kit.fontawesome.com/4fe8e2c77b.js" crossorigin="anonymous"></script>
+    @*<script src="~/Scripts/js/ForumStyle.js"></script>*@
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(function () {
+            var len = 80; // 超過100個字以"..."取代
+            $(".JQellipsis").each(function (i) {
+                if ($(this).text().length > len) {
+                    $(this).attr("title", $(this).text());
+                    var text = $(this).text().substring(0, len - 1) + "...";
+                    $(this).text(text);
+                }
+            });
+        });
+
+
+
+        var cnt = $('.entry').length;
+        console.log(cnt);
+
+        var m = document.querySelector('.search-count');
+        m.innerHTML = `<span>共 ${cnt} 篇文章</span>`;
+    </script>
+}
+

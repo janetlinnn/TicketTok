@@ -1,0 +1,369 @@
+﻿@model TicketChange.Controllers.ForDetial
+@*@{
+        var commentList = new List<TicketChange.Models.Comment>();
+        using (TicketChange.Models.TicketChangeEntities db = new TicketChange.Models.TicketChangeEntities())
+        {
+            commentList = db.Comment.Select(x => x).ToList();
+        }
+    }
+    @functions {
+        public string GetName(string id)
+        {
+            using (TicketChange.Models.TicketChangeEntities db = new TicketChange.Models.TicketChangeEntities())
+            {
+                return db.User.Find(id).Name;
+            }
+        }
+                }*@
+
+@{
+    var commentList = new List<TicketChange.Models.Comment>();
+    using (TicketChange.Models.TicketChangeEntities db = new TicketChange.Models.TicketChangeEntities())
+    {
+        //commentList = db.Comment.Include("User").Where(x=>x.ArtID == this.Model.ArtID).Select(x => x).ToList();
+        commentList = (from c in db.Comment
+                       join u in db.User on c.ID equals u.ID
+                       where c.ArtID == this.Model.ArtID
+                       select c).ToList();
+
+
+    }
+
+    var useName = new List<TicketChange.Models.User>();
+    using (TicketChange.Models.TicketChangeEntities db = new TicketChange.Models.TicketChangeEntities())
+    {
+        //commentList = db.Comment.Include("User").Where(x=>x.ArtID == this.Model.ArtID).Select(x => x).ToList();
+        useName = (from u in db.User select u).ToList();
+
+    } }
+<link href="~/Content/style.css" rel="stylesheet" />
+
+
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="breadcrumb-hero">
+            <div class="banner">
+                <div class="breadcrumb-hero">
+                    <div class="mybg">
+                        @*<h2>討論版</h2>*@
+                        <div class="search-wrap">
+                            <div class="search-box">
+                                @using (Html.BeginForm("ArticleList", "Forum"))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <i class="fas fa-search"></i>
+
+                                    @Html.TextBox("ArtTitle", null, new { @class = "search-input", placeholder = "搜尋文章" })
+                                    <input class="search-btn" type="submit" value="搜 尋" />
+                                }
+                            </div>
+                            @if (GetUser.id() != "unlogin")
+                            {
+                                <div class="post-btn"><a href="@Url.Content("~/Forum/Create")"><i class="far fa-edit"></i></a></div>}
+                            else
+                            {
+                                <div class="post-btn" data-toggle="tooltip" data-placement="right" title="登入才能發文喔"><a><i class="far fa-edit"></i></a></div>
+                            }
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </section><!-- End Breadcrumbs -->
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                <div id="left-area" class="entries">
+
+                    <article class="entry entry-single">
+
+                        <div class="entry-top">
+                            <div class="entry-title">
+                                <h2>@Model.ArtTitle</h2>
+                            </div>@if (GetUser.id() != "unlogin" && (Model.ID == Convert.ToInt32(GetUser.id()) || Convert.ToInt32(GetUser.id()) == 3))//編輯按鈕
+                            {
+                                <div class="update">
+                                    <div>
+                                        <a href="#" id="moreItem" class=""><i class="fas fa-ellipsis-v"></i></a>
+                                    </div>
+
+
+                                    <div class="more-card">
+                                        <span class="arrow-int"></span>
+                                        <span class="arrow-out"></span>
+                                        <ul>
+
+                                            <li><a href="@Url.Action("Edit", "Forum", new { aId = Model.ArtID})"><i class="fas fa-pen"></i> 編輯文章</a></li>
+                                            <li><a href="#" id="deleteItem" data-path="@Url.Action("DeleteArt", "Forum", new { aId = Model.ArtID })" data-target="#basic" data-toggle="modal"><i class="fas fa-trash-alt"></i> 刪除文章</a></li>
+
+                                        </ul>
+                                    </div>
+
+                                </div>}
+                        </div>
+
+
+
+
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li class="d-flex align-items-center" id="cat" data-cat="@Model.ArtCategory"><span> @Model.ArtCategory</span></li>
+                                <li class="d-flex align-items-center"><a class="author" href="#"><img id="userImg" style="border-radius: 50%;" class="userImg img-circle" src=@Model.User.Picture alt="Alternate Text" /><span class="authorName"> @Model.User.Name</span> </a></li>
+                                <li class="d-flex align-items-center"><i class="far fa-clock"></i><div class="post-date">@Convert.ToDateTime(Model.ArtTime).ToLongDateString() @Convert.ToDateTime(Model.ArtTime).ToShortTimeString() </div></li>
+                            </ul>
+                        </div>
+
+                        <div class="entry-content">
+                            @Html.Raw(@Model.ArtContent)
+                        </div>
+
+                        @*<div class="content-bottom">
+                                <ul>
+                                    <li class="d-flex align-items-center"><button class="likeBtn"><i class="far fa-heart"></i><span class="like-count">20</span></button></li>
+                                    <li class="d-flex align-items-center"><a href="#reply"><i class="far fa-comment-dots"></i><span class="comment-count">4</span></a></li>
+                                </ul>
+
+                            </div>*@
+
+                        <div class="entry-footer">
+
+                            <div>
+                                <div id="myHidden">@Model.ArtID</div><font color="gray">tags:</font>
+                                <ul class="tags">
+                                    @{
+                                        var tempStr = Model.Tag.Split(' ');
+
+                                        foreach (var item in tempStr)
+                                        {
+                                            <li>
+                                                <form action="@Url.Action("ArticleTagList", "Forum", new { TagContent = item })" method="post">
+                                                    <a class=" aclick">
+                                                        @item
+                                                    </a>
+                                                </form>
+                                            </li>
+
+                                        }
+                                    }
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </article><!-- End blog entry -->
+                    @*<h4 class="comments-top">留言區</h4>*@
+                    <h4 class="comments-top">共 <span class="comments-count"></span> 則留言</h4>
+                    <div class="comments">
+
+                        @foreach (var comment in Model.Comments)
+                        {
+                            <form action="@Url.Action("CommentList", new {id = this.Model.ArtID})" method="post" enctype="multipart/form-data">
+                                <ul class="comment-list">
+                                    <li class="comment">
+                                        <div class="comment-left">
+                                            <div class="comment-meta">
+                                                <div><img style="border-radius: 50%;" src=@comment.User.Picture width="45" height="45"></div>
+                                            </div>
+                                        </div>
+                                        <div class="comment-right">
+                                            <div class="comment-meta">
+                                                <div class="userName">@comment.User.Name </div>
+                                                <div class="comment-content"> @comment.GetType().GetProperty("ComTime").GetValue(comment).ToString()</div>
+                                            </div>
+                                            @*@if (@Session["AccountData"] != null && comment.SendEmail && (Convert.ToInt32(GetUser.id()) == Model.ID || Convert.ToInt32(GetUser.id()) == comment.ID))
+        {<div class="myMail" style="font-weight:500; color:#000; "><div class="send-email"> <div class="mailicon"><i class="far fa-envelope "></i></div><div class="mailLen"><a href="mailto:@comment.User.Email"> @comment.User.Email</a></div> </div></div>}*@
+
+                                            @if (@Session["AccountData"] != null && comment.SendEmail && (Convert.ToInt32(GetUser.id()) == Model.ID || Convert.ToInt32(GetUser.id()) == comment.ID))
+                                            {<div class="send-email2" style="font-weight:500; color:#000; "> <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=customer.service @comment.User.Email"><i class="far fa-envelope "></i> &nbsp;@comment.User.Email</a></div>}
+                                            <div class="comment-content">
+                                                @comment.GetType().GetProperty("ComContent").GetValue(comment).ToString()
+                                            </div>
+
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </form>
+                        }
+                       
+
+                    </div>
+                    
+
+                    @if (GetUser.id() == "unlogin")
+                    {
+                        <div style="background-color:rgba(50,50,50,0.5);color:white;text-align:center;position:absolute;width:600px;height:275px;padding-top:120px;font-size:xx-large;">
+                            登入才能留言喔
+                        </div>}
+
+                    <form name="comment" id="reply" class="reply-form" action="@Url.Action("AddComment", new {ArtId = Model.ArtID,UserId = GetUser.id()})" method="post" enctype="multipart/form-data">
+
+
+                        <div class="comment-wrap">
+                            <div>
+                                
+                                <div class="userName" name="name">@GetUser.name()</div>
+                                <div class="post-date" name="datetime">@DateTime.Now</div>
+                            </div>
+                            <div style="text-align:center;margin:0 auto;">
+                                <input type="checkbox" name="sendEmail" value="true" style="text-align:center" /> 將 E-mail 提供給發文者
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="ComContent" reqtuired id="comInput" placeholder="留言"></textarea>
+
+                            <div class="reply-footer">
+                                <div class="editBtn">
+                                    <input id="cancelBtn" class="rb" type="submit" value="取消" />
+                                    <input id="submitBtn" class="rb" type="submit" value="送出" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- End blog entries list-->
+
+                <div id="right-area" class="">
+
+                    <div class="">
+                        <h3 class="sidebar-title"><i class="fas fa-th-list"></i> 看板分類</h3>
+                        <div class="categories">
+                            <ul class="cat">
+                                <li><a href="@Url.Action("ArticleList", "Forum")"> 全部</a></li>
+                                <li><a href="@Url.Action("ArticleCategoery", "Forum", new { cat = 1 })" data-status="ticket">門票討論</a></li>
+                                <li><a href="@Url.Action("ArticleCategoery", "Forum", new { cat = 2 })" data-status="ticket">周邊討論</a></li>
+                                <li><a href="@Url.Action("ArticleCategoery", "Forum", new { cat = 3 })" data-status="share">心得分享</a></li>
+                            </ul>
+                        </div><!-- End sidebar categories-->
+                    </div><!-- End sidebar -->
+                    <div>
+                        <h3 class="sidebar-title"><i class="fas fa-tags"></i> 熱門標籤</h3>
+                        <div class="sidebar-item tags">
+                            <ul>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "演唱會" })" method="post">演唱會</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "求票" })" method="post">求票</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "讓票" })" method="post">讓票</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "獨立音樂" })" method="post">獨立音樂</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "周邊" })" method="post">周邊</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "台北" })" method="post">台北</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "音樂祭" })" method="post">音樂祭</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "高雄" })" method="post">高雄</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "分享" })" method="post">分享</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "大港開唱" })" method="post">大港開唱</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "小巨蛋" })" method="post">小巨蛋</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "田馥甄" })" method="post">田馥甄</a></li>
+                                <li><a href="@Url.Action("ArticleTagList", "Forum", new { TagContent = "換票" })" method="post">換票</a></li>
+
+                            </ul>
+                        </div><!-- End sidebar tags-->
+
+                    </div>
+
+                </div><!-- End blog sidebar -->
+    </section><!-- End Blog Section -->
+
+
+
+
+
+
+    <div class="modal fade" id="basic" tabindex="-1" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" id="modal-header">
+                    @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>*@
+                    <h4>確認刪除?</h4>
+                </div>
+                <div class="modal-body">
+
+                    <p>確定要刪除本篇文章嗎？此操作無法復原。</p>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" type="button" class="btn btn-default">取消</button>
+                    <button id="btnContinueDelete" type="button" class="btn btn-danger">移除</button>
+                    @*<a href="#" data-path="@Url.Action("DeleteArt", "Forum", new { aId = Model.ArtID })" id="btnContinueDelete" data-toggle="modal" class="btn btn-danger">移除</a>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main><!-- End #main -->
+
+
+
+
+@section scripts{
+
+    <script src="https://kit.fontawesome.com/4fe8e2c77b.js" crossorigin="anonymous"></script>
+
+
+    <script>
+
+
+        //$('.more-card').hide();
+        $(function () {
+            $("#moreItem").click(function (e) {
+                e.preventDefault();
+                $(".more-card").slideToggle();
+            });
+
+
+        })
+
+
+        var path_to_delete;
+
+        $("#deleteItem").click(function (e) {
+            path_to_delete = $(this).data('path');
+        });
+
+        $('#btnContinueDelete').click(function () {
+            window.location = path_to_delete;
+        });
+
+
+        $('.aclick').on('click', function () {
+            var test;
+            $(this).parent('form').submit();
+        }
+        );
+
+
+
+        // 計算留言數
+        var len = $('.comment-list li').length;
+        console.log(len);
+
+        var m = document.querySelector('.comments-count');
+        m.innerHTML = `<span>${len}</span>`;
+
+
+ 
+
+
+    </script>
+
+
+    <script>
+        $(function () {
+            $(".comment-content").each(function () {
+                var temp = $(this).text().replace(/\n|\r\n/g, '<br/>');
+                $(this).html(temp);
+            });
+        });
+    </script>
+
+}
+

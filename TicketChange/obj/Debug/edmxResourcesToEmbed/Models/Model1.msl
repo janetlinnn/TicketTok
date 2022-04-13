@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TicketChangeModelStoreContainer" CdmEntityContainer="TicketChangeEntities">
+    <EntitySetMapping Name="Article">
+      <EntityTypeMapping TypeName="TicketChangeModel.Article">
+        <MappingFragment StoreEntitySet="Article">
+          <ScalarProperty Name="ArtID" ColumnName="ArtID" />
+          <ScalarProperty Name="ArtTitle" ColumnName="ArtTitle" />
+          <ScalarProperty Name="ArtContent" ColumnName="ArtContent" />
+          <ScalarProperty Name="ArtTime" ColumnName="ArtTime" />
+          <ScalarProperty Name="ArtCategory" ColumnName="ArtCategory" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Article_Tag">
+      <EntityTypeMapping TypeName="TicketChangeModel.Article_Tag">
+        <MappingFragment StoreEntitySet="Article_Tag">
+          <ScalarProperty Name="AtID" ColumnName="AtID" />
+          <ScalarProperty Name="ArtID" ColumnName="ArtID" />
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comment">
+      <EntityTypeMapping TypeName="TicketChangeModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="ComID" ColumnName="ComID" />
+          <ScalarProperty Name="ComContent" ColumnName="ComContent" />
+          <ScalarProperty Name="ComTime" ColumnName="ComTime" />
+          <ScalarProperty Name="ArtID" ColumnName="ArtID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Read" ColumnName="Read" />
+          <ScalarProperty Name="SendEmail" ColumnName="SendEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginAPI">
+      <EntityTypeMapping TypeName="TicketChangeModel.LoginAPI">
+        <MappingFragment StoreEntitySet="LoginAPI">
+          <ScalarProperty Name="Num" ColumnName="Num" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="APIprovider" ColumnName="APIprovider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_Event">
+      <EntityTypeMapping TypeName="TicketChangeModel.t_Event">
+        <MappingFragment StoreEntitySet="t_Event">
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+          <ScalarProperty Name="EventClass" ColumnName="EventClass" />
+          <ScalarProperty Name="IsFullDay" ColumnName="IsFullDay" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tag">
+      <EntityTypeMapping TypeName="TicketChangeModel.Tag">
+        <MappingFragment StoreEntitySet="Tag">
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="TagContent" ColumnName="TagContent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="TicketChangeModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="LoginDate" ColumnName="LoginDate" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatRoom">
+      <EntityTypeMapping TypeName="TicketChangeModel.ChatRoom">
+        <MappingFragment StoreEntitySet="ChatRoom">
+          <ScalarProperty Name="OnCall" ColumnName="OnCall" />
+          <ScalarProperty Name="TalkerID" ColumnName="TalkerID" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="ChatID" ColumnName="ChatID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatTexts">
+      <EntityTypeMapping TypeName="TicketChangeModel.ChatTexts">
+        <MappingFragment StoreEntitySet="ChatTexts">
+          <ScalarProperty Name="TalkTime" ColumnName="TalkTime" />
+          <ScalarProperty Name="TalkerID" ColumnName="TalkerID" />
+          <ScalarProperty Name="ChatText" ColumnName="ChatText" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="TextID" ColumnName="TextID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

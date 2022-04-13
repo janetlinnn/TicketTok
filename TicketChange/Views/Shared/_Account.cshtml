@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/AccountStyle.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+</head>
+
+@{var callback = new { callback = Request.Url.ToString() };/*紀錄當前URL*/}
+<body>
+    <div id="accountnav">
+        @if (Session["AccountData"] == null)
+        {
+            <div type="button" class="dropdown-toggle chip">
+                登入
+            </div>
+            <div class="menu-down my-menu">
+                <a href="@Url.Action("GoogleLoginDirect", "Login" , callback)" class="dropdown-item my-list">
+                    <img src="~/img/LoginLogo/google.png" width="40" alt="Google Login" />
+                </a>
+                <a href="@Url.Action("FBLoginDirect","Login",callback)" class="dropdown-item  my-list">
+                    <img src="~/img/LoginLogo/facebook.png" width="40" alt="FB Login" />
+                </a>
+                <a href="@Url.Action("LineLoginDirect","Login",callback)" class="dropdown-item  my-list">
+                    <img src="~/img/LoginLogo/line.png" width="40" alt="Line Login" />
+                </a>
+            </div>
+        }
+        else
+        {
+            <!--RWD-->
+            <script>
+        $(window).ready(checksize);
+        $(window).resize(checksize);
+        function checksize() {
+            if ($(window).width() < parseInt($("#username").css("width"))*4 + 500) {
+                $("#username").css("display", "none");
+                if ($("#nameinmenu").length ==0) {
+                    $("#usermenu").prepend("<span id='nameinmenu' class='dropdown-item my-list ' sytle='disabled: disabled'>@GetUser.name()</span>")
+                }
+            } else {
+                $("#username").css("display", "inline");
+                $("#nameinmenu").remove();
+            }
+        }
+            </script>
+            <div type="button" class="chip ">
+                <nobr style="width:30px">
+                    <img src="@Url.Content(GetUser.loginMode())" alt="login_mode" width="30" height="30">
+                    <nobr></nobr>
+                </nobr>
+                <nobr>
+                    <img src=@GetUser.pictureUrl() alt="Person" width="30" height="30">
+                </nobr>
+                <nobr id="username">@GetUser.name()</nobr>
+            </div>
+            <div id="usermenu" class="menu-down my-menu">
+                <a class="dropdown-item my-list" href="@Url.Action("MyArticle", "Login" )">我的文章</a>
+                <a class="dropdown-item my-list" sytle="disabled:disabled">我的通知 <nobr class="my-notice"></nobr></a>
+                @*<button class="dropdown-item my-list" id="okbody1">通知設定</button>
+                    <div type="button" class="dropdown-item my-list" data-toggle="modal" data-target="#exampleModalLong">帳戶</div>*@
+                <a class="dropdown-item my-list" href="@Url.Action("Logout", "Login" ,callback)">登出</a>
+            </div>
+            //取得通知
+            <script>
+                $.getJSON("@Url.Action("GetNotice", "Login")",(notice) => {
+                    console.log(notice);
+                    if (notice.length > 0) {
+                        $(".my-notice").html(`未讀${notice.length}`);
+                        $(".chip :nth-child(2)").html(`${notice.length}`);
+                    } else {
+                        $(".chip :nth-child(2)").css = "";
+                    }
+        })
+            </script>
+        }
+        <!--$.getJSON("/Home/Image", `title=${info.event.title}`, function (thedata) {});-->
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

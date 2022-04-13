@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Concert";
+}
+@model System.Linq.IQueryable<TicketChange.Models.t_Event>
+@section css{
+
+    <style>
+        .imgdiv {
+            width: 337.97px;
+            height: 380px;
+        }
+      /*  .imgdiv {
+            width: 400px;
+            height: 400px;
+        }
+*/
+        .disc {
+            height: 72.78px;
+        }
+    </style>
+}
+
+
+<div class="page-section">
+    <div class="container mt-5">
+        <div class="filterable-btn">
+            <button class="btn active" data-filter="*">全部</button>
+            <button class="btn" data-filter=".0">演唱會</button> @*cat可以自訂種類 來搜尋*@
+            <button class="btn" data-filter=".1">音樂祭</button>
+            
+        </div>
+        
+        <div class="grid mt-3">
+            @{  var imageByte = new byte[] {};
+                    foreach (var item in Model)
+                    {
+                    <div class="grid-item @item.EventClass">
+                        @*可以控制哪個種類*@
+                        <div class="portfolio">
+                            <div class="container">
+                                <div class="row row-cols-1">
+                                    <div class="col imgdiv" >
+                                      
+                                            @{
+
+                                                imageByte = item.Image;
+                                                var base64 = Convert.ToBase64String(imageByte);
+                                                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                            }
+                                            <img width="370" height="370" class="rounded mx-auto d-block"  src="@imgSrc" alt=""> @*演唱會圖片*@
+                                       
+                                    </div>
+                                    <div class="col disc"><p class="font-weight-bolder" style="padding-top:20px">@item.Subject</p></div>
+                                    <div class="col text-right">
+                                        <a href="@Url.Action("Concert_Detail/"+item.EventID, "Home")"><button type="button" class="btn btn-outline-success">活動詳情</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+
+        @*<div class="mt-5 text-center">
+            <button class="btn btn-primary">更多資訊...</button>
+        </div>*@
+    </div> <!-- .container -->
+</div> <!-- .page-section -->

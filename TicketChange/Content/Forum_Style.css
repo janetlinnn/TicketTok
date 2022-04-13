@@ -1,0 +1,380 @@
+﻿body {
+}
+
+ul{
+    list-style-type: none;
+}
+
+/*forum*/
+/*forum-top*/
+.search-wrap{
+    display: flex;
+    align-items:center;
+    text-align: center;
+    justify-content: center;
+}
+
+.search-box {
+    /*width: 600px;*/
+    margin: 50px 5px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border: 1px solid #ca4f0f;
+    border-radius: 4px;
+    padding: 2px;
+    background-color: #fff;
+}
+
+.search-box i {
+    font-size: 22px;
+    margin: 0 5px;
+    color: #ca4f0f;
+}
+
+.search-input, .search-btn{
+    border: none;
+    outline: none;
+}
+
+.search-input {
+    padding: 10px;
+    width: 600px;
+    max-width: 100%;
+    background-color: transparent;
+}
+
+.search-btn {
+    padding: 10px;
+    width: 80px;
+    background-color: #ca4f0f;
+    color: #fff;
+    border-radius: 4px;
+}
+
+
+
+/*forum-body*/
+#forum-top {
+    width: 900px;
+    margin: 0px auto;
+}
+
+#forum-body {
+    width: 900px;
+    margin: 0px auto;
+    padding: 10px 20px 20px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.8);
+}
+
+.main-wrap a{
+    color: #000;
+    display: block;
+    text-decoration: none;
+}
+
+.main-top {
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.main-tabs {
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+    align-items: center;
+    padding-inline-start: 0;
+}
+
+.main-tabs a{
+    padding: 10px 20px;
+    margin: 10px 0px -11px;
+    /*border-bottom: 3px solid transparent;*/
+}
+.main-tabs a:hover{
+    color: gray;
+}
+
+.main-tabs a:active, .main-tabs a:focus {
+    border-bottom: 3px solid #ca4f0f;
+}
+
+
+.post-btn a {
+    width: 90px;
+    background: #ca4f0f;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 15px;
+    display: block;
+    border: 2px solid #fff;
+}
+
+.post-btn i {
+    font-size: 26px;
+    /*transition: 0.5s;*/
+    color: #fff;
+}
+
+.post-btn a:hover i {
+    /*transform: scale(1.1);*/
+    color: #eeab37;
+}
+
+.post-btn a:hover {
+    background-color: #fff;
+    border: 2px solid #eeab37;
+}
+
+.focusOn {
+    border-bottom: 3px solid #ca4f0f;
+}
+
+
+
+.post {
+    margin: 10px 0 0;
+    line-height: 1;
+    height: auto;
+}
+
+
+.post a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #dddddd;
+    padding: 20px 20px;
+}
+
+
+.post-time{
+    color: gray;
+}
+
+.post-image {
+    width: 150px;
+   
+   
+}
+
+.post img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+}
+
+
+.post h3{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+/*文章*/
+
+.artMain, .comMain{
+    padding: 10px 20px;
+}
+
+#userImg{
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}
+
+.artContent {
+    margin-top: 30px;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.artBottom{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.artBottom a{
+    color: gray;
+    font-size: 18px;
+    
+}
+
+.likeBtn, .saveBtn {
+    display: block;
+    text-decoration: none;
+}
+
+.likeBtn:hover{
+    color: red;
+    text-decoration: none;
+}
+
+.likeCount{
+    margin: 0 10px;
+}
+
+.saveBtn:hover {
+    color: deepskyblue;
+    text-decoration: none;
+}
+
+
+.like{
+    display: flex;
+    align-items: center;
+}
+
+/*留言*/
+.commentArea {
+    background-color: rgb(245, 245, 245);
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+#comment-list {
+    margin: 10px 0 0 0;
+
+    padding-inline-start: 0px;
+}
+
+#comment-list li{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 10px 0;
+}
+
+.comBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comBar .likeBtn{
+    color: gray;
+}
+
+.comBar .likeBtn:hover{
+    color: red;
+}
+
+.comContent{
+    padding-left: 60px;
+}
+
+.comTop {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 5px;
+}
+
+
+
+.comment {
+    /*  max-height: 150px;*/
+    border: 1px solid lightgray;
+    margin: 20px 0;
+}
+
+#commentEdit {
+    /*border: 1px solid black;*/
+    outline: none;
+    display: block;
+    padding: 10px;
+
+}
+
+#commentEdit:empty:before{
+    content: "留言留言"; 
+    color: gray; 
+}
+
+#commentEdit:focus:before {
+    content: none;
+}
+
+
+#commentEdit:empty:before {
+    content: "留言...";
+    color: gray;
+}
+
+#commentEdit:focus:before {
+    content: none;
+}
+
+
+.comBtn, .editBtn{
+    display: flex;
+    justify-content:flex-end;
+}
+
+.editBtn {
+    margin-top: 10px;
+}
+
+.cb, .eb {
+    padding: 10px;
+    width: 80px;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    margin-left: 10px;
+}
+
+.comBottom{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#file {
+    opacity: 0;
+    display: none;
+}
+
+.uploadImg{
+    color: gray;
+    cursor: pointer;
+    font-size: 36px;
+}
+
+
+.ck-editor__editable {
+    min-height: 300px;
+    font-size: 16px;
+}
+
+.editor{
+    padding-bottom: 600px;
+}
+
+
+#comCancel {
+    border: 1px solid #ca4f0f;
+    border-radius: 4px;
+    background: #fff;
+    color: #ca4f0f;
+}
+
+#comSend {
+    border-radius: 4px;
+    background: #ca4f0f;
+}
+
+.titleInput {
+    display: block;
+    resize: none;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 30px;
+}
+
+.titleInputa:focus {
+    outline: none;
+}

@@ -1,0 +1,194 @@
+﻿@{
+    ViewBag.Title = "";
+
+}
+@*@model System.Linq.IQueryable<TicketChange.Models.t_Event>*@
+@model TicketChange.Models.t_Event
+@section css{
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
+    @*<link href="~/Content/sync/fontawesome-all.css" rel="stylesheet">
+        <link href="~/Content/sync/swiper.css" rel="stylesheet">
+        <link href="~/Content/Ocean/magnific-popup.css" rel="stylesheet">*@
+    <link href="~/Content/sync/styles.css" rel="stylesheet">
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 270px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+    </style>
+}
+
+
+<!-- Description 2 -->
+<div class="tabs">
+    <div class="container align-items-center">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="tabs-container mt-0">
+
+                    <!-- Tabs Links -->
+                    <ul class="nav nav-tabs " id="cedoTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"><i class="far fa-clock"></i>節目介紹</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false"><i class="fas fa-list"></i>時間地點</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="nav-tab-3" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false"><i class="far fa-calendar-alt"></i>Google地圖</a>
+                        </li>
+                    </ul>
+                    <!-- end of tabs links -->
+                    <!-- Tabs Content -->
+                    <div class="tab-content" id="cedoTabsContent">
+                        <!-- Tab -->
+                        <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
+                            <p><strong>
+                                @*@foreach (var item in @Model)
+                                {
+                                    <p>@item.Subject</p>
+                                }*@
+                                <p>@Model.Subject</p>
+                            </strong></p>
+                            
+                            @*標題*@                        
+                            <ul class="list-unstyled li-space-lg">
+                                @*介紹*@
+                                <li class="media">
+                                    <i class="far fa-check-square"></i>
+                                    <div class="media-body">
+                                    @Html.Raw(@Model.Content)
+
+                                    </div>
+                                </li>
+                                @*<li class="media">
+                <i class="far fa-check-square"></i>
+                <div class="media-body">It's easy to stay focused on your most important daily activities that will get you closer to meeting your goals</div>
+            </li>
+            <li class="media">
+                <i class="far fa-check-square"></i>
+                <div class="media-body">Use phone reminders to free up your long term memory which will reduce stress and make you more productive</div>
+            </li>*@
+                            </ul>
+                            @*<a class="btn-solid-reg page-scroll" href="terms-conditions.html">TERMS</a> <a class="btn-outline-reg page-scroll" href="privacy-policy.html">PRIVACY</a>*@
+                        </div> <!-- end of tab-pane -->
+                        <!-- end of tab -->
+                        <!-- Tab -->
+                        <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
+                            <p>
+                                <strong>日期｜</strong> @(@Model.DateStart.ToString().Substring(0,9))
+                            </p>
+                            <p>
+                                <strong>時間｜</strong> @(@Model.DateStart.ToString().Substring(9, 9))
+                            </p>
+                            <p>
+                                <strong>地點｜</strong> @Model.Description
+                            </p>
+                            @*<p>
+                                <strong>票價｜</strong> 單人預售票 $500、雙人預售票 $800、現場票 $600
+                            </p>*@
+                           
+                        </div> <!-- end of tab-pane -->
+                        <!-- end of tab -->
+                        <!-- Tab -->
+                        <div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
+
+                            <ul class="list-unstyled li-space-lg" style="text-align:center">
+                                <li class="media">
+                                    <h4 style="color:gray">@Model.Description</h4>
+                                </li>
+                                <li class="media">
+
+                                    @*<h3 style="color:gray">My Google Maps Demo</h3>*@
+                                    <!--The div element for the map -->
+                                    <div id="map"></div>
+                                    @*google地圖*@
+                                </li>
+
+                            </ul>
+                        </div> <!-- end of tab-pane -->
+                        <!-- end of tab -->
+                    </div> <!-- end of tab-content -->
+                    <!-- end of nav tabs content -->
+
+                </div> <!-- end of tabs-container -->
+            </div> <!-- end of col -->
+            <div class="col-lg-6">
+                <div class="image-container">
+                    @{
+                        var imageByte = new byte[]{};
+                        imageByte = Model.Image;
+                        var base64 = Convert.ToBase64String(imageByte);
+                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                    }
+                    <img class="img-fluid" src="@imgSrc" alt="alternative">
+                    @*演唱會圖片*@
+
+                </div> <!-- end of image-container -->
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of tabs -->
+<!-- end of description 2 -->
+@section scripts{
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+
+    <script>
+        // Initialize and add the map
+        var map, geocoder;
+
+     /*   function initMap() {*/
+
+            @*if (@Model.Description=="高雄 橋頭糖廠十鼓文化園區") {
+                uluru = {
+                    lat: 22.759311666820803, lng: 120.31361219205566
+                };
+            }
+            else {
+                // The location of Uluru 預設經緯度
+                uluru = {
+                    lat: 25.013433286965938, lng: 121.5306056
+                };
+            }*@
+            //const uluru = {
+            //    lat: 25.013433286965938, lng: 121.5306056
+            //};
+            // The map, centered at Uluru
+            //const map = new google.maps.Map(document.getElementById("map"), {
+            //    zoom: 15,
+            //    center: uluru,
+            //});
+            // The marker, positioned at Uluru
+            //const marker = new google.maps.Marker({
+            //    position: uluru,
+            //    map: map,
+            //});
+
+       /* }*/
+        function initMap() {
+            geocoder = new google.maps.Geocoder();
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15
+            });
+
+            var address = '@Model.Description';
+
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status == 'OK') {
+                    map.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    console.log(status);
+                }
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeZPxJXbRiM9sg_vk15Evg08t-flPM_Qg&callback=initMap&v=weekly"
+            async></script>
+}

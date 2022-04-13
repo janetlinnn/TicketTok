@@ -1,0 +1,83 @@
+﻿@model List<TicketChange.Models.Article>
+
+@{
+    ViewBag.Title = "MyArticle";
+}
+<style>
+    .rrr {
+        width: 70%;
+        margin:0 auto;
+    }
+</style>
+<link href="~/Content/style.css" rel="stylesheet" />
+<main id="main">
+    <section id="blog" class="blog">
+        <div class="container">
+            <div class="search-tag">@Html.Raw(ViewBag.tagName)</div>
+            <div class="entries myhr rrr">
+                @if (Model.Count() == 0)
+                {
+                    <article class="enrty">
+                        <div class="entry-content">抱歉，您目前沒有文章</div>
+                    </article>
+                }
+                else
+                {
+                    foreach (var item in Model)
+                    {
+                        <article class="entry" data-title="@item.ArtTitle">
+                            <a href="@Url.Action("Details", "Forum", new { id = item.ArtID })">
+                                <h2 class="entry-title">
+                                    @item.ArtTitle
+                                </h2>
+
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li class="d-flex" id="cat" data-cat="@item.ArtCategory"><span> @item.ArtCategory</span></li>
+                                        <li class="d-flex"><img id="userImg" style="border-radius: 50%;" class="userImg img-circle" src=@GetUser.pictureUrl() alt="Alternate Text" /><div class="authorName">@GetUser.name() </div></li>
+                                        <li class="d-flex"><i class="far fa-clock"></i><div class="post-date">@Convert.ToDateTime(item.ArtTime).ToLongDateString()</div></li>
+                                    </ul>
+                                </div>
+                                <div class="entry-content">
+                                    <div class="JQellipsis">
+                                        @Html.Raw(@item.ArtContent)
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                    }
+                }
+            </div>
+        </div>
+        <div id="pageBtn">@Html.Raw(ViewBag.PageList)</div>
+    </section><!-- End Blog Section -->
+</main><!-- End #main -->
+
+
+@section scripts{
+    <script src="https://kit.fontawesome.com/4fe8e2c77b.js" crossorigin="anonymous"></script>
+    <script src="~/Scripts/js/ForumStyle.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(function () {
+            var len = 80; // 超過100個字以"..."取代
+            $(".JQellipsis").each(function (i) {
+                if ($(this).text().length > len) {
+                    $(this).attr("title", $(this).text());
+                    var text = $(this).text().substring(0, len - 1) + "...";
+                    $(this).text(text);
+                }
+            });
+        });
+
+
+
+        var cnt = $('.entry').length;
+        console.log(cnt);
+
+        var m = document.querySelector('.search-count');
+        m.innerHTML = `<span>共 ${cnt} 篇文章</span>`;
+    </script>
+}
+}
