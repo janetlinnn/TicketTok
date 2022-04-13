@@ -1,7 +1,7 @@
 # TicketTok
 正式大專
 steps to run the file:
-1.open the TicketChange.sql with SSMS
+<p>1.open the TicketChange.sql with SSMS</p>
 2.buld a database which named　＂TicketChange＂
 3.run the .sql file4. open the .sln file with Visual Studio and run it
 =====================================================================================
