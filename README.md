@@ -2,8 +2,9 @@
 正式大專
 steps to run the file:
 <p>1.open the TicketChange.sql with SSMS</p>
-2.buld a database which named　＂TicketChange＂
-3.run the .sql file4. open the .sln file with Visual Studio and run it
+<p>2.buld a database which named　＂TicketChange＂</p>
+<p>3.run the .sql file</p>
+<p>4. open the .sln file with Visual Studio and run it</p>
 =====================================================================================
 Simple description(mandarin):
      現在的二手票券轉讓通常只能在FB或其他許多平台，而他們只販售、宣傳跟自身售票網站配合的節
