@@ -8,7 +8,7 @@ steps to run the file:
 <p>5. open the .sln file with Visual Studio and run it</p>
 
 =====================================================================================
-Simple description(mandarin):
+<p>Simple description(mandarin):
 
      現在的二手票券轉讓通常只能在FB或其他許多平台，而他們只販售、宣傳跟自身售票網站配合的節
 
@@ -19,7 +19,7 @@ Simple description(mandarin):
 在這次的團隊專案中，我們選擇使用Azure DevOps來進行版本控制，它擁有的比對程式碼和回復版本功能為專案
 
 的整合帶來很大的便利，也是讓我學會團隊協作的關鍵。
-
+</p>
 
 
 
